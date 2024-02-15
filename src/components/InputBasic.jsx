@@ -43,7 +43,7 @@ function InputBasic({ label, type, placeholder, textRows = 4, isOptional }) {
 
 InputBasic.propTypes = {
   label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['text', 'textarea']).isRequired,
+  type: PropTypes.oneOf(['text', 'textarea', 'email', 'url']).isRequired,
   placeholder: PropTypes.string.isRequired,
   textRows: PropTypes.number,
   isOptional: PropTypes.bool,
