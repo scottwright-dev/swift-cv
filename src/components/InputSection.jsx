@@ -7,20 +7,20 @@ const formSections = [
   {
     title: 'Personal Information',
     fields: [
-      { label: 'Name', type: 'text', placeholder: 'First name' },
-      { label: 'Surname', type: 'text', placeholder: 'Surname' },
-      { label: 'Phone', type: 'text', placeholder: 'add phone number' },
-      { label: 'Email', type: 'email', placeholder: 'email@example.com' },
+      { label: 'Name', type: 'text', placeholder: '' },
+      { label: 'Surname', type: 'text', placeholder: '' },
+      { label: 'Phone', type: 'text', placeholder: '' },
+      { label: 'Email', type: 'email', placeholder: '' },
       {
         label: 'LinkedIn',
         type: 'url',
-        placeholder: 'https://www.linkedin.com/in/yourname',
+        placeholder: '',
         isOptional: true,
       },
       {
         label: 'Website',
         type: 'url',
-        placeholder: 'https://www.yourwebsite.com',
+        placeholder: '',
         isOptional: true,
       },
     ],
@@ -39,10 +39,10 @@ const formSections = [
   {
     title: 'Work Experience',
     fields: [
-      { label: 'Position', type: 'text', placeholder: 'Add job title' },
-      { label: 'Company', type: 'text', placeholder: 'Add company name' },
-      { label: 'Start Date', type: 'text', placeholder: 'Nov 2021' },
-      { label: 'End Date', type: 'text', placeholder: 'Present' },
+      { label: 'Position', type: 'text', placeholder: '' },
+      { label: 'Company', type: 'text', placeholder: '' },
+      { label: 'Start Date', type: 'text', placeholder: '' },
+      { label: 'End Date', type: 'text', placeholder: '' },
       {
         label: 'Description',
         type: 'textarea',
@@ -53,25 +53,25 @@ const formSections = [
   },
   {
     title: 'Technical Skills',
-    fields: [{ label: 'Add Skill', type: 'text', placeholder: 'JavaScript' }],
+    fields: [{ label: 'Add Skill', type: 'text', placeholder: '' }],
     addButton: true,
   },
   {
     title: 'Qualifications',
     fields: [
-      { label: 'Qualification', type: 'text', placeholder: 'CS Degree' },
-      { label: 'Institute', type: 'text', placeholder: 'Add institute name' },
-      { label: 'Start Date', type: 'text', placeholder: 'Sept 2021' },
-      { label: 'End Date', type: 'text', placeholder: 'Dec 2023' },
+      { label: 'Qualification', type: 'text', placeholder: '' },
+      { label: 'Institute', type: 'text', placeholder: '' },
+      { label: 'Start Date', type: 'text', placeholder: '' },
+      { label: 'End Date', type: 'text', placeholder: '' },
     ],
     addButton: true,
   },
   {
     title: 'Education',
     fields: [
-      { label: 'School', type: 'text', placeholder: 'Add School name' },
-      { label: 'Start Date', type: 'text', placeholder: 'Sept 2021' },
-      { label: 'End Date', type: 'text', placeholder: 'Dec 2023' },
+      { label: 'School', type: 'text', placeholder: '' },
+      { label: 'Start Date', type: 'text', placeholder: '' },
+      { label: 'End Date', type: 'text', placeholder: '' },
     ],
     addButton: true,
   },
