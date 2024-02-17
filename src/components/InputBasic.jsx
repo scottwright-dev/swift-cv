@@ -26,7 +26,7 @@ function InputBasic({ label, type, placeholder, textRows = 4, isOptional }) {
   }
   return (
     <div className="relative mb-4">
-      <label htmlFor={label.toLowerCase()} className="text-gray-700">
+      <label htmlFor={label.toLowerCase()} className="text-gray-900">
         {label}
         {isOptional && <span className="text-gray-400"> (optional)</span>}
       </label>
