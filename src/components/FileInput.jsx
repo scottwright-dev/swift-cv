@@ -20,9 +20,13 @@ function FileInput({ label, isOptional, onFileSelect }) {
   };
 
   return (
-    <div className="mb-2 flex items-start space-x-6">
-      <div className="shrink-0">
-        <span className="inline-block h-16 w-16 overflow-hidden rounded-full bg-slate-200">
+    <div className="mb-4 flex flex-col">
+      <label className="mb-2 block leading-6 text-gray-900">
+        {label}
+        {isOptional && <span className="text-gray-400"> (optional)</span>}
+      </label>
+      <div className="flex items-center">
+        <span className="mr-6 inline-block h-14 w-14 overflow-hidden rounded-full bg-slate-200">
           <svg
             className="h-full w-full text-indigo-300"
             fill="currentColor"
@@ -31,20 +35,16 @@ function FileInput({ label, isOptional, onFileSelect }) {
             <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
           </svg>
         </span>
-      </div>
-      <div>
-        <label className="block text-sm font-medium leading-6 text-gray-700">
-          {label}
-          {isOptional && <span className="text-gray-500"> (optional)</span>}
-        </label>
-        <input
-          ref={fileInputRef}
-          type="file"
-          onChange={handleFileChange}
-          className="hidden"
-          aria-label={label + (isOptional ? ' (optional)' : '')}
-        />
-        <ButtonSecondary text="Add Photo" onClick={handleClick} />
+        <div className="flex-1">
+          <input
+            ref={fileInputRef}
+            type="file"
+            onChange={handleFileChange}
+            className="hidden"
+            aria-label={label + (isOptional ? ' (optional)' : '')}
+          />
+          <ButtonSecondary text="Add Photo" onClick={handleClick} />
+        </div>
       </div>
     </div>
   );
