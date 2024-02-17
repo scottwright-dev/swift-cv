@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import PropTypes from 'prop-types';
-import ButtonPrimary from './ButtonPrimary';
+import ButtonSecondary from './ButtonSecondary';
 
 function FileInput({ label, isOptional, onFileSelect }) {
   // ref to store file input DOM element for direct manipulation
@@ -20,9 +20,9 @@ function FileInput({ label, isOptional, onFileSelect }) {
   };
 
   return (
-    <div className="mb-4 flex items-center space-x-6">
+    <div className="mb-2 flex items-start space-x-6">
       <div className="shrink-0">
-        <span className="inline-block h-14 w-14 overflow-hidden rounded-full bg-slate-200">
+        <span className="inline-block h-16 w-16 overflow-hidden rounded-full bg-slate-200">
           <svg
             className="h-full w-full text-indigo-300"
             fill="currentColor"
@@ -33,9 +33,9 @@ function FileInput({ label, isOptional, onFileSelect }) {
         </span>
       </div>
       <div>
-        <label className="block text-sm font-medium leading-6 text-gray-900">
+        <label className="block text-sm font-medium leading-6 text-gray-700">
           {label}
-          {isOptional && ' (optional)'}
+          {isOptional && <span className="text-gray-500"> (optional)</span>}
         </label>
         <input
           ref={fileInputRef}
@@ -44,7 +44,7 @@ function FileInput({ label, isOptional, onFileSelect }) {
           className="hidden"
           aria-label={label + (isOptional ? ' (optional)' : '')}
         />
-        <ButtonPrimary text="Add Photo" onClick={handleClick} />
+        <ButtonSecondary text="Add Photo" onClick={handleClick} />
       </div>
     </div>
   );
