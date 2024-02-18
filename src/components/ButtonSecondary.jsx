@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 
-function ButtonSecondary({ text }) {
+function ButtonSecondary({ text, onClick }) {
   return (
     <button
       type="button"
+      onClick={onClick}
       className="rounded-md px-3.5 py-2.5 text-sm font-semibold text-indigo-600 shadow-sm outline outline-2 hover:bg-indigo-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
     >
       {text}
@@ -13,6 +14,7 @@ function ButtonSecondary({ text }) {
 
 ButtonSecondary.propTypes = {
   text: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ButtonSecondary;
