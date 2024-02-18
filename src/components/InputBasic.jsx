@@ -1,6 +1,14 @@
 import PropTypes from 'prop-types';
 
-function InputBasic({ label, type, placeholder, textRows = 4, isOptional }) {
+function InputBasic({
+  label,
+  type,
+  placeholder,
+  textRows = 4,
+  isOptional,
+  value,
+  onChange,
+}) {
   if (type === 'textarea') {
     return (
       <div>
@@ -18,7 +26,8 @@ function InputBasic({ label, type, placeholder, textRows = 4, isOptional }) {
             id={label.toLowerCase()}
             placeholder={placeholder}
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            defaultValue={''}
+            value={value}
+            onChange={onChange}
           />
         </div>
       </div>
@@ -36,18 +45,21 @@ function InputBasic({ label, type, placeholder, textRows = 4, isOptional }) {
         id={label.toLowerCase()}
         placeholder={placeholder}
         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        value={value}
+        onChange={onChange}
       />
     </div>
   );
 }
 
 InputBasic.propTypes = {
-  label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['text', 'textarea', 'email', 'url', 'file'])
-    .isRequired,
-  placeholder: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  type: PropTypes.oneOf(['text', 'textarea', 'email', 'url', 'file']),
+  placeholder: PropTypes.string,
   textRows: PropTypes.number,
   isOptional: PropTypes.bool,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 export default InputBasic;

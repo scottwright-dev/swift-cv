@@ -1,12 +1,26 @@
 import { Disclosure } from '@headlessui/react';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { formSections } from '../structure/formStructure';
 import InputBasic from './InputBasic';
 import FileInput from './FileInput';
 import ButtonCircular from './ButtonCircular';
 
-export default function InputSection() {
+function InputSection({ onInputChange }) {
+  const [formValues, setFormValues] = useState({});
+
+  const handleFieldChange = (fieldName, value) => {
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [fieldName]: value,
+    }));
+
+    if (onInputChange) {
+      onInputChange(fieldName, value);
+    }
+  };
+
   return (
     <div className="flex-1 bg-white p-4">
       <div className="mx-auto max-w-7xl">
@@ -29,12 +43,17 @@ export default function InputSection() {
                     </Disclosure.Button>
                     <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
                       {section.fields.map((field, fieldIdx) => {
+                        const fieldName = field.label
+                          .toLowerCase()
+                          .replace(/ /g, '_');
                         return field.type === 'file' ? (
                           <FileInput
                             key={`${sectionIdx}-${fieldIdx}`}
                             label={field.label}
                             isOptional={field.isOptional}
-                            onFileSelect={(file) => console.log(file)}
+                            onFileSelect={(file) =>
+                              console.log('File selected:', file.name)
+                            }
                           />
                         ) : (
                           <InputBasic
@@ -43,6 +62,10 @@ export default function InputSection() {
                             type={field.type}
                             placeholder={field.placeholder}
                             isOptional={field.isOptional}
+                            value={formValues[fieldName] || ''}
+                            onChange={(e) =>
+                              handleFieldChange(fieldName, e.target.value)
+                            }
                           />
                         );
                       })}
@@ -62,3 +85,9 @@ export default function InputSection() {
     </div>
   );
 }
+
+InputSection.propTypes = {
+  onInputChange: PropTypes.func,
+};
+
+export default InputSection;
