@@ -41,6 +41,7 @@ function FileInput({ label, isOptional, onFileSelect }) {
             type="file"
             onChange={handleFileChange}
             className="hidden"
+            accept="image/jpeg, image/png, image/webp"
             aria-label={label + (isOptional ? ' (optional)' : '')}
           />
           <ButtonSecondary text="Add Photo" onClick={handleClick} />
