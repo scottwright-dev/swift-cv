@@ -6,14 +6,14 @@ import InputSectionDisclosure from './InputSectionDisclosure';
 function InputSection({ onInputChange }) {
   const [formValues, setFormValues] = useState({});
 
-  const handleFieldChange = (fieldName, value) => {
+  const handleFieldChange = (id, value) => {
     setFormValues((prevValues) => ({
       ...prevValues,
-      [fieldName]: value,
+      [id]: value,
     }));
 
     if (onInputChange) {
-      onInputChange(fieldName, value);
+      onInputChange(id, value);
     }
   };
 

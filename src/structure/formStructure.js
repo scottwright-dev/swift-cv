@@ -2,19 +2,58 @@ export const formSections = [
   {
     title: 'Personal Information',
     fields: [
-      { label: 'Photo', type: 'file', placeholder: '', isOptional: true },
-      { label: 'Name', type: 'text', placeholder: '' },
-      { label: 'Surname', type: 'text', placeholder: '' },
-      { label: 'Phone', type: 'text', placeholder: '' },
-      { label: 'Email', type: 'email', placeholder: '' },
-      { label: 'LinkedIn', type: 'url', placeholder: '', isOptional: true },
-      { label: 'Website', type: 'url', placeholder: '', isOptional: true },
+      {
+        id: crypto.randomUUID(),
+        label: 'Photo',
+        type: 'file',
+        placeholder: '',
+        isOptional: true,
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'Name',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'Surname',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'Phone',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'Email',
+        type: 'email',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'LinkedIn',
+        type: 'url',
+        placeholder: '',
+        isOptional: true,
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'Website',
+        type: 'url',
+        placeholder: '',
+        isOptional: true,
+      },
     ],
   },
   {
     title: 'Summary',
     fields: [
       {
+        id: crypto.randomUUID(),
         label: 'Description',
         type: 'textarea',
         placeholder:
@@ -25,11 +64,32 @@ export const formSections = [
   {
     title: 'Work Experience',
     fields: [
-      { label: 'Position', type: 'text', placeholder: '' },
-      { label: 'Company', type: 'text', placeholder: '' },
-      { label: 'Start Date', type: 'text', placeholder: '' },
-      { label: 'End Date', type: 'text', placeholder: '' },
       {
+        id: crypto.randomUUID(),
+        label: 'Position',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'Company',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'Start Date',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'End Date',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
         label: 'Description',
         type: 'textarea',
         placeholder: 'Enter details here. Recommended max 200 words.',
@@ -39,25 +99,67 @@ export const formSections = [
   },
   {
     title: 'Technical Skills',
-    fields: [{ label: 'Add Skill', type: 'text', placeholder: '' }],
+    fields: [
+      {
+        id: crypto.randomUUID(),
+        label: 'Add Skill',
+        type: 'text',
+        placeholder: '',
+      },
+    ],
     addButton: true,
   },
   {
     title: 'Qualifications',
     fields: [
-      { label: 'Qualification', type: 'text', placeholder: '' },
-      { label: 'Institute', type: 'text', placeholder: '' },
-      { label: 'Start Date', type: 'text', placeholder: '' },
-      { label: 'End Date', type: 'text', placeholder: '' },
+      {
+        id: crypto.randomUUID(),
+        label: 'Qualification',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'Institute',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'Start Date',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'End Date',
+        type: 'text',
+        placeholder: '',
+      },
     ],
     addButton: true,
   },
   {
     title: 'Education',
     fields: [
-      { label: 'School', type: 'text', placeholder: '' },
-      { label: 'Start Date', type: 'text', placeholder: '' },
-      { label: 'End Date', type: 'text', placeholder: '' },
+      {
+        id: crypto.randomUUID(),
+        label: 'School',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'Start Date',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        label: 'End Date',
+        type: 'text',
+        placeholder: '',
+      },
     ],
     addButton: true,
   },

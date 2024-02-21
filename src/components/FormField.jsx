@@ -19,7 +19,7 @@ function FormField({ field, value, onChange }) {
           placeholder={field.placeholder}
           isOptional={field.isOptional}
           value={value}
-          onChange={onChange}
+          onChange={(e) => onChange(e.target.value)}
         />
       )}
     </>

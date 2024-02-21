@@ -20,15 +20,13 @@ function InputSectionDisclosure({ section, formValues, handleFieldChange }) {
             />
           </Disclosure.Button>
           <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
-            {section.fields.map((field, fieldIdx) => {
-              const fieldName = field.label.toLowerCase().replace(/ /g, '_');
-
+            {section.fields.map((field) => {
               return (
                 <FormField
-                  key={fieldIdx}
+                  key={field.id}
                   field={field}
-                  value={formValues[fieldName] || ''}
-                  onChange={(e) => handleFieldChange(fieldName, e.target.value)}
+                  value={formValues[field.id] || ''}
+                  onChange={(value) => handleFieldChange(field.id, value)}
                 />
               );
             })}
