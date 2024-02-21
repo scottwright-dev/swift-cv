@@ -6,11 +6,12 @@ function FileInput({ label, isOptional, onFileSelect }) {
   // ref to store file input DOM element for direct manipulation
   const fileInputRef = useRef(null);
 
-  // function to handle file selection change event
+  // handles file upload
   const handleFileChange = (event) => {
-    // check if any file is selected and invoke the callback with the file
     if (event.target.files.length > 0) {
-      onFileSelect(event.target.files[0]);
+      const file = event.target.files[0];
+      const fileUrl = URL.createObjectURL(file);
+      onFileSelect(fileUrl);
     }
   };
 
