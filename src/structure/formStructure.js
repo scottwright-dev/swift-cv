@@ -58,6 +58,7 @@ export const formSections = [
         type: 'textarea',
         placeholder:
           'Craft a brief yet engaging introduction. Highlight your position, notable accomplishments and expertise. (Recommended under 200 words)',
+        isOptional: true,
       },
     ],
   },
