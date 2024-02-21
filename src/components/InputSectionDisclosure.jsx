@@ -1,9 +1,8 @@
 import { Disclosure } from '@headlessui/react';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
-import InputBasic from './InputBasic';
-import FileInput from './FileInput';
-import ButtonCircular from './ButtonCircular';
 import PropTypes from 'prop-types';
+import FormField from './FormField';
+import ButtonCircular from './ButtonCircular';
 
 function InputSectionDisclosure({ section, formValues, handleFieldChange }) {
   return (
@@ -23,22 +22,11 @@ function InputSectionDisclosure({ section, formValues, handleFieldChange }) {
           <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
             {section.fields.map((field, fieldIdx) => {
               const fieldName = field.label.toLowerCase().replace(/ /g, '_');
-              return field.type === 'file' ? (
-                <FileInput
+
+              return (
+                <FormField
                   key={fieldIdx}
-                  label={field.label}
-                  isOptional={field.isOptional}
-                  onFileSelect={(file) =>
-                    console.log('File selected:', file.name)
-                  }
-                />
-              ) : (
-                <InputBasic
-                  key={fieldIdx}
-                  label={field.label}
-                  type={field.type}
-                  placeholder={field.placeholder}
-                  isOptional={field.isOptional}
+                  field={field}
                   value={formValues[fieldName] || ''}
                   onChange={(e) => handleFieldChange(fieldName, e.target.value)}
                 />
