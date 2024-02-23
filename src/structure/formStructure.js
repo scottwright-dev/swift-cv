@@ -64,6 +64,7 @@ export const formSections = [
   },
   {
     title: 'Work Experience',
+    repeatable: true,
     fields: [
       {
         id: crypto.randomUUID(),
@@ -100,6 +101,7 @@ export const formSections = [
   },
   {
     title: 'Technical Skills',
+    repeatable: true,
     fields: [
       {
         id: crypto.randomUUID(),
@@ -112,6 +114,7 @@ export const formSections = [
   },
   {
     title: 'Qualifications',
+    repeatable: true,
     fields: [
       {
         id: crypto.randomUUID(),
@@ -142,6 +145,7 @@ export const formSections = [
   },
   {
     title: 'Education',
+    repeatable: true,
     fields: [
       {
         id: crypto.randomUUID(),
