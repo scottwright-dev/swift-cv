@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 import FormField from './FormField';
 import ButtonCircular from './ButtonCircular';
 
-function InputSectionDisclosure({ section, formValues, handleFieldChange }) {
+function InputSectionDisclosure({
+  section,
+  formValues,
+  handleFieldChange,
+  addFieldSet,
+}) {
   return (
     <Disclosure
       as="div"
@@ -32,7 +37,10 @@ function InputSectionDisclosure({ section, formValues, handleFieldChange }) {
             })}
             {section.addButton && (
               <div className="mt-4 flex justify-center">
-                <ButtonCircular text="Add More" />
+                <ButtonCircular
+                  text="Add More"
+                  onClick={() => addFieldSet(section.title)}
+                />
               </div>
             )}
           </Disclosure.Panel>
@@ -46,6 +54,7 @@ InputSectionDisclosure.propTypes = {
   section: PropTypes.object.isRequired,
   formValues: PropTypes.object.isRequired,
   handleFieldChange: PropTypes.func.isRequired,
+  addFieldSet: PropTypes.func.isRequired,
 };
 
 export default InputSectionDisclosure;
