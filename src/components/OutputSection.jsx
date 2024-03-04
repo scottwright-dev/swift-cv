@@ -5,12 +5,14 @@ function OutputSection({ formValues, labelsToIds }) {
   const userPhoto = formValues[labelsToIds['Photo']];
   const name = formValues[labelsToIds['Name']];
   const surname = formValues[labelsToIds['Surname']];
+  const jobTitle = formValues[labelsToIds['Job Title']];
 
   // Exclude photo, name, surname from the nonImageFormValues
   const excludedKeys = new Set([
     labelsToIds['Photo'],
     labelsToIds['Name'],
     labelsToIds['Surname'],
+    labelsToIds['Job Title'],
   ]);
   const nonImageFormValues = Object.entries(formValues).filter(
     ([key]) => !excludedKeys.has(key),
@@ -18,7 +20,12 @@ function OutputSection({ formValues, labelsToIds }) {
 
   return (
     <div className="mx-auto max-w-7xl flex-1 shadow-2xl">
-      <CVHeader userPhoto={userPhoto} name={name} surname={surname} />
+      <CVHeader
+        userPhoto={userPhoto}
+        name={name}
+        surname={surname}
+        jobTitle={jobTitle}
+      />
       {nonImageFormValues.map(([id, value]) => (
         <div key={id} className="mb-2">
           <div className="ml-4">
