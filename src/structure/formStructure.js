@@ -23,6 +23,12 @@ export const formSections = [
       },
       {
         id: crypto.randomUUID(),
+        label: 'Job Title',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: crypto.randomUUID(),
         label: 'Phone',
         type: 'text',
         placeholder: '',
