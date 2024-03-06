@@ -27,8 +27,12 @@ export default function SectionContainer() {
 
   return (
     <div className="flex min-h-screen pt-4">
-      <InputSection onInputChange={handleInputChange} />
-      <OutputSection formValues={formValues} labelsToIds={labelsToIds} />
+      <div className="flex w-1/2 flex-col">
+        <InputSection onInputChange={handleInputChange} />
+      </div>
+      <div className="flex w-1/2 flex-col">
+        <OutputSection formValues={formValues} labelsToIds={labelsToIds} />
+      </div>
     </div>
   );
 }
