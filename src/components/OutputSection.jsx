@@ -1,38 +1,68 @@
 import PropTypes from 'prop-types';
 import CVHeader from './CVHeader';
+import CVPersonalInfo from './CVPersonalInfo';
 
 function OutputSection({ formValues, labelsToIds }) {
+  // CVHeader fields
   const userPhoto = formValues[labelsToIds['Photo']];
   const name = formValues[labelsToIds['Name']];
   const surname = formValues[labelsToIds['Surname']];
   const jobTitle = formValues[labelsToIds['Job Title']];
+  // CVPersonalInfo fields
+  const phone = formValues[labelsToIds['Phone']];
+  const email = formValues[labelsToIds['Email']];
+  const linkedIn = formValues[labelsToIds['LinkedIn']];
+  const website = formValues[labelsToIds['Website']];
 
-  // Exclude photo, name, surname from the nonImageFormValues
   const excludedKeys = new Set([
     labelsToIds['Photo'],
     labelsToIds['Name'],
     labelsToIds['Surname'],
     labelsToIds['Job Title'],
+    labelsToIds['Phone'],
+    labelsToIds['Email'],
+    labelsToIds['LinkedIn'],
+    labelsToIds['Website'],
   ]);
   const nonImageFormValues = Object.entries(formValues).filter(
     ([key]) => !excludedKeys.has(key),
   );
+  console.log('nonImageFormValues:', nonImageFormValues);
+  const leftColumnValues = nonImageFormValues.slice(0, 4);
+  console.log('leftColumnValues:', leftColumnValues);
+  const rightColumnValues = nonImageFormValues.slice(4);
+  console.log('rightColumnValues:', rightColumnValues);
 
   return (
-    <div className="mx-auto max-w-7xl flex-1 shadow-2xl">
+    <div className="flex flex-1 flex-col shadow-2xl">
       <CVHeader
         userPhoto={userPhoto}
         name={name}
         surname={surname}
         jobTitle={jobTitle}
       />
-      {nonImageFormValues.map(([id, value]) => (
-        <div key={id} className="mb-2">
-          <div className="ml-4">
-            <span>{value}</span>
-          </div>
+      <div className="flex flex-grow">
+        <div className="w-1/3 border-2 border-red-400">
+          <CVPersonalInfo
+            phone={phone}
+            email={email}
+            linkedIn={linkedIn}
+            website={website}
+          />
+          {leftColumnValues.map(([id, value]) => (
+            <div key={id} className="mb-2">
+              <span>{value}</span>
+            </div>
+          ))}
         </div>
-      ))}
+        <div className="w-2/3 border-2 border-blue-400">
+          {rightColumnValues.map(([id, value]) => (
+            <div key={id} className="mb-2">
+              <span>{value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
