@@ -35,7 +35,7 @@ function OutputSection({ formValues, labelsToIds }) {
           />
         </div>
         <div className="w-2/3 border-2 border-blue-400">
-          <CVSummary summary={summary} />
+          {summary && <CVSummary summary={summary} />}
         </div>
       </div>
     </div>
