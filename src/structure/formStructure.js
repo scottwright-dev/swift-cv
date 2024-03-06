@@ -60,7 +60,7 @@ export const formSections = [
     fields: [
       {
         id: crypto.randomUUID(),
-        label: 'Description',
+        label: 'Summary',
         type: 'textarea',
         placeholder:
           'Craft a brief yet engaging introduction. Highlight your position, notable accomplishments and expertise. (Recommended under 200 words)',
