@@ -26,7 +26,7 @@ function OutputSection({ formValues, labelsToIds }) {
         jobTitle={jobTitle}
       />
       <div className="flex flex-grow">
-        <div className="w-1/3 border-2 border-red-400">
+        <div className="w-1/3 border-r pt-2">
           <CVPersonalInfo
             phone={phone}
             email={email}
@@ -34,7 +34,7 @@ function OutputSection({ formValues, labelsToIds }) {
             website={website}
           />
         </div>
-        <div className="w-2/3 border-2 border-blue-400">
+        <div className="w-2/3">
           {summary && <CVSummary summary={summary} />}
         </div>
       </div>
