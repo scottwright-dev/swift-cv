@@ -111,7 +111,7 @@ export const formSections = [
     fields: [
       {
         id: crypto.randomUUID(),
-        label: 'Add Skill',
+        label: 'Skill',
         type: 'text',
         placeholder: '',
       },
