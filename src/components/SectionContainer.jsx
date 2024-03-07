@@ -27,10 +27,10 @@ export default function SectionContainer() {
 
   return (
     <main className="flex min-h-screen pt-4">
-      <section className="flex w-1/2 flex-col">
+      <section className="flex w-2/5 flex-col">
         <InputSection onInputChange={handleInputChange} />
       </section>
-      <section className="flex w-1/2 flex-col">
+      <section className="flex w-3/5 flex-col">
         <OutputSection formValues={formValues} labelsToIds={labelsToIds} />
       </section>
     </main>
