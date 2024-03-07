@@ -13,6 +13,7 @@ function OutputSection({ formValues, labelsToIds }) {
   const email = formValues[labelsToIds['Email']];
   const linkedIn = formValues[labelsToIds['LinkedIn']];
   const website = formValues[labelsToIds['Website']];
+  const hasPersonalInfo = phone || email || linkedIn || website;
   // CVSummary fields
   const summary = formValues[labelsToIds['Summary']];
 
@@ -28,12 +29,14 @@ function OutputSection({ formValues, labelsToIds }) {
       </header>
       <section className="flex flex-grow">
         <aside className="w-1/3 border-r pt-2">
-          <CVPersonalInfo
-            phone={phone}
-            email={email}
-            linkedIn={linkedIn}
-            website={website}
-          />
+          {hasPersonalInfo && (
+            <CVPersonalInfo
+              phone={phone}
+              email={email}
+              linkedIn={linkedIn}
+              website={website}
+            />
+          )}
         </aside>
         <section className="w-2/3">
           {summary && <CVSummary summary={summary} />}
