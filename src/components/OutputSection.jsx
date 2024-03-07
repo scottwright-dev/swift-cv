@@ -17,7 +17,7 @@ function OutputSection({ formValues, labelsToIds }) {
   const summary = formValues[labelsToIds['Summary']];
 
   return (
-    <article className="flex flex-1 flex-col shadow-2xl">
+    <section className="flex flex-1 flex-col shadow-2xl">
       <header>
         <CVHeader
           userPhoto={userPhoto}
@@ -35,11 +35,11 @@ function OutputSection({ formValues, labelsToIds }) {
             website={website}
           />
         </aside>
-        <main className="w-2/3">
+        <section className="w-2/3">
           {summary && <CVSummary summary={summary} />}
-        </main>
+        </section>
       </section>
-    </article>
+    </section>
   );
 }
 
