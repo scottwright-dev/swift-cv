@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import CVHeader from './CVHeader';
 import CVPersonalInfo from './CVPersonalInfo';
 import CVSummary from './CVSummary';
-
 function OutputSection({ formValues, labelsToIds }) {
   // CVHeader fields
   const userPhoto = formValues[labelsToIds['Photo']];
@@ -18,27 +17,29 @@ function OutputSection({ formValues, labelsToIds }) {
   const summary = formValues[labelsToIds['Summary']];
 
   return (
-    <div className="flex flex-1 flex-col shadow-2xl">
-      <CVHeader
-        userPhoto={userPhoto}
-        name={name}
-        surname={surname}
-        jobTitle={jobTitle}
-      />
-      <div className="flex flex-grow">
-        <div className="w-1/3 border-r pt-2">
+    <article className="flex flex-1 flex-col shadow-2xl">
+      <header>
+        <CVHeader
+          userPhoto={userPhoto}
+          name={name}
+          surname={surname}
+          jobTitle={jobTitle}
+        />
+      </header>
+      <section className="flex flex-grow">
+        <aside className="w-1/3 border-r pt-2">
           <CVPersonalInfo
             phone={phone}
             email={email}
             linkedIn={linkedIn}
             website={website}
           />
-        </div>
-        <div className="w-2/3">
+        </aside>
+        <main className="w-2/3">
           {summary && <CVSummary summary={summary} />}
-        </div>
-      </div>
-    </div>
+        </main>
+      </section>
+    </article>
   );
 }
 
