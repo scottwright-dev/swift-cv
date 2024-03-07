@@ -26,13 +26,13 @@ export default function SectionContainer() {
   };
 
   return (
-    <div className="flex min-h-screen pt-4">
-      <div className="flex w-1/2 flex-col">
+    <main className="flex min-h-screen pt-4">
+      <section className="flex w-1/2 flex-col">
         <InputSection onInputChange={handleInputChange} />
-      </div>
-      <div className="flex w-1/2 flex-col">
+      </section>
+      <section className="flex w-1/2 flex-col">
         <OutputSection formValues={formValues} labelsToIds={labelsToIds} />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
