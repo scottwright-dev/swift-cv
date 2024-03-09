@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 function CVHeader({ userPhoto, name, surname, jobTitle }) {
   return (
-    <div className="flex items-center bg-slate-200 p-2">
+    <div className="flex items-center bg-slate-100 p-5">
       {userPhoto && (
         <img
           className="h-24 w-24 rounded-full object-cover"
