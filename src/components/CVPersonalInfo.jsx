@@ -8,10 +8,31 @@ function CVPersonalInfo({ phone, email, linkedIn, website }) {
         <InformationCircleIcon className="mr-2 h-5 w-5" />
         <span className="text-lg">Contact</span>
       </header>
-      {phone && <div className="ml-7 flex items-center">{phone}</div>}
-      {email && <div className="ml-7 flex items-center">{email}</div>}
-      {linkedIn && <div className="ml-7 flex items-center">{linkedIn}</div>}
-      {website && <div className="ml-7 flex items-center">{website}</div>}
+
+      {phone && (
+        <div className="ml-3 flex items-center">
+          <span className="mr-2.5 text-base leading-none">•</span>
+          {phone}
+        </div>
+      )}
+      {email && (
+        <div className="ml-3 flex items-center">
+          <span className="mr-2.5 text-base leading-none">•</span>
+          {email}
+        </div>
+      )}
+      {linkedIn && (
+        <div className="ml-3 flex items-center">
+          <span className="mr-2.5 text-base leading-none">•</span>
+          {linkedIn}
+        </div>
+      )}
+      {website && (
+        <div className="ml-3 flex items-center">
+          <span className="mr-2.5 text-base leading-none">•</span>
+          {website}
+        </div>
+      )}
     </section>
   );
 }
