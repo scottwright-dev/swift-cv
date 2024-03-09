@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import CVHeader from './CVHeader';
 import CVPersonalInfo from './CVPersonalInfo';
 import CVSummary from './CVSummary';
+import CVSkill from './CVSkill';
 function OutputSection({ formValues, labelsToIds }) {
   // CVHeader fields
   const userPhoto = formValues[labelsToIds['Photo']];
@@ -16,6 +17,8 @@ function OutputSection({ formValues, labelsToIds }) {
   const hasPersonalInfo = phone || email || linkedIn || website;
   // CVSummary fields
   const summary = formValues[labelsToIds['Summary']];
+  // CVSkill field
+  const skill = formValues[labelsToIds['Skill']];
 
   return (
     <section className="flex flex-1 flex-col shadow-2xl">
@@ -37,6 +40,7 @@ function OutputSection({ formValues, labelsToIds }) {
               website={website}
             />
           )}
+          {skill && <CVSkill skill={skill} />}
         </aside>
         <section className="w-2/3">
           {summary && <CVSummary summary={summary} />}
