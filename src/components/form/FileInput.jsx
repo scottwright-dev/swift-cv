@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import ButtonSecondary from './ButtonSecondary';
+import ButtonSecondary from '../ButtonSecondary';
 
 function FileInput({ label, isOptional, onFileSelect }) {
   // ref to store file input DOM element for direct manipulation

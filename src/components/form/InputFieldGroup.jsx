@@ -1,6 +1,6 @@
 // InputFields.jsx
 import PropTypes from 'prop-types';
-import FormField from './FormField';
+import FormField from './InputField';
 
 const InputFields = ({ section, formValues, handleFieldChange }) => {
   return (

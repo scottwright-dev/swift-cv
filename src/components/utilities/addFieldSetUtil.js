@@ -1,4 +1,4 @@
-import { formSections } from '../structure/formStructure';
+import { formSections } from '../../structure/formStructure';
 
 // Function to clone a field and assign it a unique ID.
 const cloneFieldWithNewId = (field) => ({

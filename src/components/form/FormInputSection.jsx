@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { formSections } from '../structure/formStructure';
-import InputSectionDisclosure from './InputSectionDisclosure';
-import { addNewFieldSet } from './addFieldSetUtil';
+import { formSections } from '../../structure/formStructure';
+import InputSectionDisclosure from './FormSectionDisclosurePanel';
+import { addNewFieldSet } from '../utilities/addFieldSetUtil';
 
 function InputSection({ onInputChange, formValues }) {
   // Manages the sections of the form

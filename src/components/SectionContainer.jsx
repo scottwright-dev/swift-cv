@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
-import InputSection from './InputSection';
-import OutputSection from './OutputSection';
+import InputSection from './form/FormInputSection';
+import OutputSection from './cv/CVOutputSection';
 import { formSections } from '../structure/formStructure';
 
 export default function SectionContainer() {
