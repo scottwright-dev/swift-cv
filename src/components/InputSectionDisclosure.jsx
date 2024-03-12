@@ -1,7 +1,7 @@
 import { Disclosure } from '@headlessui/react';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import PropTypes from 'prop-types';
-import FormField from './FormField';
+import InputFields from './InputFields';
 import ButtonCircular from './ButtonCircular';
 
 function InputSectionDisclosure({
@@ -25,16 +25,11 @@ function InputSectionDisclosure({
             />
           </Disclosure.Button>
           <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
-            {section.fields.map((field) => {
-              return (
-                <FormField
-                  key={field.id}
-                  field={field}
-                  value={formValues[field.id] || ''}
-                  onChange={(value) => handleFieldChange(field.id, value)}
-                />
-              );
-            })}
+            <InputFields
+              section={section}
+              formValues={formValues}
+              handleFieldChange={handleFieldChange}
+            />
             {section.addButton && (
               <div className="mt-4 flex justify-center">
                 <ButtonCircular
