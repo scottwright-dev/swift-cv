@@ -6,8 +6,6 @@ import { formSections } from '../structure/formStructure';
 export default function SectionContainer() {
   const [formValues, setFormValues] = useState({});
 
-  console.log('SectionContainer - formValues:', formValues);
-
   // maps labels to UUIDs for simpler referencing
   const labelsToIds = useMemo(() => {
     const mapping = {};
@@ -19,17 +17,12 @@ export default function SectionContainer() {
     return mapping;
   }, []);
 
-  console.log('SectionContainer - labelsToIds:', labelsToIds);
-
   // updates form values based on field id and value
   const handleInputChange = (id, value) => {
     setFormValues((prevValues) => ({
       ...prevValues,
       [id]: value,
     }));
-
-    console.log('SectionContainer - handleInputChange - id:', id);
-    console.log('SectionContainer - handleInputChange - value:', value);
   };
 
   return (
