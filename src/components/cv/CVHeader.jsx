@@ -12,9 +12,9 @@ function CVHeader({ userPhoto, name, surname, jobTitle }) {
       )}
       <div className="ml-4">
         <h1 className="inline-block border-b-2 border-gray-400 pb-1 text-3xl font-normal">
-          {`${name || 'name'} ${surname || 'surname'}`}
+          {`${name || ''} ${surname || ''}`}
         </h1>
-        <h2 className="text-2xl font-thin">{`${jobTitle || 'job title'}`}</h2>
+        <h2 className="text-2xl font-thin">{`${jobTitle || ''}`}</h2>
       </div>
     </div>
   );
