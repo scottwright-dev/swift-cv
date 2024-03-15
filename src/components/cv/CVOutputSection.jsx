@@ -5,27 +5,29 @@ import CVSummary from './CVSummary';
 import CVSkill from './CVSkill';
 
 function OutputSection({ formValues, labelsToIds }) {
-  // CVHeader fields
-  const userPhoto = formValues[labelsToIds['Photo']];
-  const name = formValues[labelsToIds['Name']];
-  const surname = formValues[labelsToIds['Surname']];
-  const jobTitle = formValues[labelsToIds['Job Title']];
+  const {
+    [labelsToIds['Photo']]: userPhoto,
+    [labelsToIds['Name']]: name,
+    [labelsToIds['Surname']]: surname,
+    [labelsToIds['Job Title']]: jobTitle,
+    [labelsToIds['Phone']]: phone,
+    [labelsToIds['Email']]: email,
+    [labelsToIds['LinkedIn']]: linkedIn,
+    [labelsToIds['Website']]: website,
+    [labelsToIds['Summary']]: summary,
+    [labelsToIds['Skill']]: initialSkill,
+    ...otherFormValues
+  } = formValues;
 
-  // CVPersonalInfo fields
-  const phone = formValues[labelsToIds['Phone']];
-  const email = formValues[labelsToIds['Email']];
-  const linkedIn = formValues[labelsToIds['LinkedIn']];
-  const website = formValues[labelsToIds['Website']];
-  const hasPersonalInfo = phone || email || linkedIn || website;
+  // Grouped fields
+  const CVHeaderFields = { userPhoto, name, surname, jobTitle };
+  const CVPersonalInfoFields = { phone, email, linkedIn, website };
+  const CVSummaryField = { summary };
 
-  // CVSummary fields
-  const summary = formValues[labelsToIds['Summary']];
-
-  // CVSkill fields
-  const initialSkill = formValues[labelsToIds['Skill']];
-  const dynamicSkills = Object.entries(formValues)
+  // Filter and map skills
+  const dynamicSkills = Object.entries(otherFormValues)
     .filter(([key]) => key.startsWith('skill-'))
-    .map(([_, value]) => value);
+    .map(([, value]) => value);
 
   const skills = initialSkill
     ? [initialSkill, ...dynamicSkills]
@@ -34,27 +36,15 @@ function OutputSection({ formValues, labelsToIds }) {
   return (
     <section className="flex flex-1 flex-col shadow-2xl">
       <header>
-        <CVHeader
-          userPhoto={userPhoto}
-          name={name}
-          surname={surname}
-          jobTitle={jobTitle}
-        />
+        <CVHeader {...CVHeaderFields} />
       </header>
       <section className="flex flex-grow">
         <aside className="w-1/3 border-r pt-2">
-          {hasPersonalInfo && (
-            <CVPersonalInfo
-              phone={phone}
-              email={email}
-              linkedIn={linkedIn}
-              website={website}
-            />
-          )}
+          {<CVPersonalInfo {...CVPersonalInfoFields} />}
           {skills.length > 0 && <CVSkill skills={skills} />}
         </aside>
         <section className="w-2/3">
-          {summary && <CVSummary summary={summary} />}
+          {summary && <CVSummary {...CVSummaryField} />}
         </section>
       </section>
     </section>
