@@ -3,51 +3,51 @@ export const formSections = [
     title: 'Personal Information',
     fields: [
       {
-        id: crypto.randomUUID(),
+        id: 'personal-photo-' + crypto.randomUUID(),
         label: 'Photo',
         type: 'file',
         placeholder: '',
         isOptional: true,
       },
       {
-        id: crypto.randomUUID(),
+        id: 'personal-name-' + crypto.randomUUID(),
         label: 'Name',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'personal-surname-' + crypto.randomUUID(),
         label: 'Surname',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'personal-jobtitle-' + crypto.randomUUID(),
         label: 'Job Title',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'personal-phone-' + crypto.randomUUID(),
         label: 'Phone',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'personal-email-' + crypto.randomUUID(),
         label: 'Email',
         type: 'email',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'personal-linkedin-' + crypto.randomUUID(),
         label: 'LinkedIn',
         type: 'url',
         placeholder: '',
         isOptional: true,
       },
       {
-        id: crypto.randomUUID(),
+        id: 'personal-website-' + crypto.randomUUID(),
         label: 'Website',
         type: 'url',
         placeholder: '',
@@ -59,7 +59,7 @@ export const formSections = [
     title: 'Summary',
     fields: [
       {
-        id: crypto.randomUUID(),
+        id: 'summary-' + crypto.randomUUID(),
         label: 'Summary',
         type: 'textarea',
         placeholder:
@@ -73,31 +73,31 @@ export const formSections = [
     repeatable: true,
     fields: [
       {
-        id: crypto.randomUUID(),
+        id: 'work-position-' + crypto.randomUUID(),
         label: 'Position',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'work-company-' + crypto.randomUUID(),
         label: 'Company',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'work-startdate-' + crypto.randomUUID(),
         label: 'Start Date',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'work-enddate-' + crypto.randomUUID(),
         label: 'End Date',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'work-description-' + crypto.randomUUID(),
         label: 'Description',
         type: 'textarea',
         placeholder: 'Enter details here. Recommended max 200 words.',
@@ -123,25 +123,25 @@ export const formSections = [
     repeatable: true,
     fields: [
       {
-        id: crypto.randomUUID(),
+        id: 'qualification-name-' + crypto.randomUUID(),
         label: 'Qualification',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'qualification-institute-' + crypto.randomUUID(),
         label: 'Institute',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'qualification-startdate-' + crypto.randomUUID(),
         label: 'Start Date',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'qualification-enddate-' + crypto.randomUUID(),
         label: 'End Date',
         type: 'text',
         placeholder: '',
@@ -154,19 +154,19 @@ export const formSections = [
     repeatable: true,
     fields: [
       {
-        id: crypto.randomUUID(),
+        id: 'education-school-' + crypto.randomUUID(),
         label: 'School',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'education-startdate-' + crypto.randomUUID(),
         label: 'Start Date',
         type: 'text',
         placeholder: '',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'education-enddate-' + crypto.randomUUID(),
         label: 'End Date',
         type: 'text',
         placeholder: '',
