@@ -15,8 +15,6 @@ function OutputSection({ formValues, labelsToIds }) {
     [labelsToIds['LinkedIn']]: linkedIn,
     [labelsToIds['Website']]: website,
     [labelsToIds['Summary']]: summary,
-    [labelsToIds['Skill']]: initialSkill,
-    ...otherFormValues
   } = formValues;
 
   // Grouped fields
@@ -25,13 +23,9 @@ function OutputSection({ formValues, labelsToIds }) {
   const CVSummaryField = { summary };
 
   // Filter and map skills
-  const dynamicSkills = Object.entries(otherFormValues)
+  const skills = Object.entries(formValues)
     .filter(([key]) => key.startsWith('skill-'))
     .map(([, value]) => value);
-
-  const skills = initialSkill
-    ? [initialSkill, ...dynamicSkills]
-    : dynamicSkills;
 
   return (
     <section className="flex flex-1 flex-col shadow-2xl">

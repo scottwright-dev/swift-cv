@@ -110,7 +110,7 @@ export const formSections = [
     repeatable: true,
     fields: [
       {
-        id: crypto.randomUUID(),
+        id: 'skill-' + crypto.randomUUID(),
         label: 'Skill',
         type: 'text',
         placeholder: '',
