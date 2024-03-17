@@ -4,11 +4,15 @@ function CVWorkExperience({ formValues }) {
   // Filter work experience items
   const workExperienceItems = Object.entries(formValues)
     .filter(([key]) => key.startsWith('work-'))
+    // Reduce filtered entries into an object where each key is the index of the work experience item
+    // & each val is an object containing the fields of the work experience item
     .reduce((acc, [key, value]) => {
       const [, fieldName, index] = key.split('-');
+      // If the accumulator doesn't have a key for this index, create an empty object for it
       if (!acc[index]) {
         acc[index] = {};
       }
+      // Add field to object for this index
       acc[index][fieldName] = value;
       return acc;
     }, {});
