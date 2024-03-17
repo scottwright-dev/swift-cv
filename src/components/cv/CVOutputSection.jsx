@@ -3,6 +3,7 @@ import CVHeader from './CVHeader';
 import CVPersonalInfo from './CVPersonalInfo';
 import CVSummary from './CVSummary';
 import CVSkill from './CVSkill';
+import CVWorkExperience from './CVWorkExperience';
 
 function OutputSection({ formValues, labelsToIds }) {
   const {
@@ -22,11 +23,6 @@ function OutputSection({ formValues, labelsToIds }) {
   const CVPersonalInfoFields = { phone, email, linkedIn, website };
   const CVSummaryField = { summary };
 
-  // Filter and map skills
-  const skills = Object.entries(formValues)
-    .filter(([key]) => key.startsWith('skill-'))
-    .map(([, value]) => value);
-
   return (
     <section className="flex flex-1 flex-col shadow-2xl">
       <header>
@@ -35,10 +31,11 @@ function OutputSection({ formValues, labelsToIds }) {
       <section className="flex flex-grow">
         <aside className="w-1/3 border-r pt-2">
           {<CVPersonalInfo {...CVPersonalInfoFields} />}
-          {skills.length > 0 && <CVSkill skills={skills} />}
+          <CVSkill formValues={formValues} />
         </aside>
         <section className="w-2/3">
           {summary && <CVSummary {...CVSummaryField} />}
+          <CVWorkExperience formValues={formValues} />
         </section>
       </section>
     </section>

@@ -1,7 +1,12 @@
 import { WrenchScrewdriverIcon } from '@heroicons/react/24/outline';
 import PropTypes from 'prop-types';
 
-function CVSkill({ skills }) {
+function CVSkill({ formValues }) {
+  // Filter and map skills
+  const skills = Object.entries(formValues)
+    .filter(([key]) => key.startsWith('skill-'))
+    .map(([, value]) => value);
+
   return (
     <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
       <header className="mb-2 flex items-center text-sm font-normal">
@@ -19,7 +24,7 @@ function CVSkill({ skills }) {
 }
 
 CVSkill.propTypes = {
-  skills: PropTypes.arrayOf(PropTypes.string),
+  formValues: PropTypes.object.isRequired,
 };
 
 export default CVSkill;
