@@ -20,37 +20,41 @@ function CVWorkExperience({ formValues }) {
 
   return (
     <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
-      <header className="mb-2 flex items-center text-sm font-normal">
-        <DocumentIcon className="mr-2 h-5 w-5" />
-        <span className="text-lg">Work Experience</span>
-      </header>
-      {Object.values(workExperienceItems).map((item, index) => (
-        <div key={index} className="mb-4">
-          <div className="flex items-center">
-            <span className="mr-2.5 text-base leading-none">•</span>
-            <span>
-              {item.company && <span>{item.company}</span>}
-              {item.position && item.company && <span>, </span>}
-              {item.position && <span>{item.position}</span>}
-            </span>
-          </div>
-          {(item.startdate || item.enddate) && (
-            <div className="flex items-center">
-              <span className="mr-2.5 text-base leading-none">•</span>
-              <span>
-                {item.startdate && <span>{item.startdate}</span>}
-                {item.startdate && item.enddate && <span> - </span>}
-                {item.enddate && <span>{item.enddate}</span>}
-              </span>
+      {Object.keys(workExperienceItems).length > 0 && (
+        <>
+          <header className="mb-2 flex items-center text-sm font-normal">
+            <DocumentIcon className="mr-2 h-5 w-5" />
+            <span className="text-lg">Work Experience</span>
+          </header>
+          {Object.values(workExperienceItems).map((item, index) => (
+            <div key={index} className="mb-4">
+              <div className="flex items-center">
+                <span className="mr-2.5 text-base leading-none">•</span>
+                <span>
+                  {item.company && <span>{item.company}</span>}
+                  {item.position && item.company && <span>, </span>}
+                  {item.position && <span>{item.position}</span>}
+                </span>
+              </div>
+              {(item.startdate || item.enddate) && (
+                <div className="flex items-center">
+                  <span className="mr-2.5 text-base leading-none">•</span>
+                  <span>
+                    {item.startdate && <span>{item.startdate}</span>}
+                    {item.startdate && item.enddate && <span> - </span>}
+                    {item.enddate && <span>{item.enddate}</span>}
+                  </span>
+                </div>
+              )}
+              {item.description && (
+                <div className="whitespace-pre-line">
+                  <span>{item.description}</span>
+                </div>
+              )}
             </div>
-          )}
-          {item.description && (
-            <div className="whitespace-pre-line">
-              <span>{item.description}</span>
-            </div>
-          )}
-        </div>
-      ))}
+          ))}
+        </>
+      )}
     </section>
   );
 }
