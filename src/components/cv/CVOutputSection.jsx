@@ -5,6 +5,7 @@ import CVSummary from './CVSummary';
 import CVSkill from './CVSkill';
 import CVWorkExperience from './CVWorkExperience';
 import CVQualification from './CVQualificationsSection';
+import CVEducation from './CVEducation';
 
 function OutputSection({ formValues, labelsToIds }) {
   const {
@@ -33,6 +34,7 @@ function OutputSection({ formValues, labelsToIds }) {
           <CVPersonalInfo {...CVPersonalInfoFields} />
           <CVSkill formValues={formValues} />
           <CVQualification formValues={formValues} />
+          <CVEducation formValues={formValues} />
         </aside>
         <section className="w-2/3">
           {summary && <CVSummary summary={summary} />}
