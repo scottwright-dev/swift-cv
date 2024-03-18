@@ -4,6 +4,7 @@ import CVPersonalInfo from './CVPersonalInfo';
 import CVSummary from './CVSummary';
 import CVSkill from './CVSkill';
 import CVWorkExperience from './CVWorkExperience';
+import CVQualification from './CVQualificationsSection';
 
 function OutputSection({ formValues, labelsToIds }) {
   const {
@@ -21,7 +22,6 @@ function OutputSection({ formValues, labelsToIds }) {
   // Grouped fields
   const CVHeaderFields = { userPhoto, name, surname, jobTitle };
   const CVPersonalInfoFields = { phone, email, linkedIn, website };
-  const CVSummaryField = { summary };
 
   return (
     <section className="flex flex-1 flex-col shadow-2xl">
@@ -30,11 +30,12 @@ function OutputSection({ formValues, labelsToIds }) {
       </header>
       <section className="flex flex-grow">
         <aside className="w-1/3 border-r pt-2">
-          {<CVPersonalInfo {...CVPersonalInfoFields} />}
+          <CVPersonalInfo {...CVPersonalInfoFields} />
           <CVSkill formValues={formValues} />
+          <CVQualification formValues={formValues} />
         </aside>
         <section className="w-2/3">
-          {summary && <CVSummary {...CVSummaryField} />}
+          {summary && <CVSummary summary={summary} />}
           <CVWorkExperience formValues={formValues} />
         </section>
       </section>
