@@ -1,4 +1,3 @@
-import { InformationCircleIcon } from '@heroicons/react/24/outline';
 import PropTypes from 'prop-types';
 
 function CVPersonalInfo({ phone, email, linkedIn, website }) {
@@ -9,7 +8,6 @@ function CVPersonalInfo({ phone, email, linkedIn, website }) {
       {contactDetails.some((detail) => detail) && (
         <>
           <header className="mb-2 flex items-center text-sm font-normal">
-            <InformationCircleIcon className="mr-2 h-5 w-5" />
             <span className="text-lg">Contact</span>
           </header>
 

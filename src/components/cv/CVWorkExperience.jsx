@@ -1,4 +1,3 @@
-import { DocumentIcon } from '@heroicons/react/24/outline';
 import PropTypes from 'prop-types';
 
 function CVWorkExperience({ formValues }) {
@@ -23,7 +22,6 @@ function CVWorkExperience({ formValues }) {
       {Object.keys(workExperienceItems).length > 0 && (
         <>
           <header className="mb-2 flex items-center text-sm font-normal">
-            <DocumentIcon className="mr-2 h-5 w-5" />
             <span className="text-lg">Work Experience</span>
           </header>
           {Object.values(workExperienceItems).map((item, index) => (

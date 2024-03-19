@@ -1,4 +1,3 @@
-import { WrenchScrewdriverIcon } from '@heroicons/react/24/outline';
 import PropTypes from 'prop-types';
 
 function CVSkill({ formValues }) {
@@ -12,7 +11,6 @@ function CVSkill({ formValues }) {
       {skills.length > 0 && (
         <>
           <header className="mb-2 flex items-center text-sm font-normal">
-            <WrenchScrewdriverIcon className="mr-2 h-5 w-5" />
             <span className="text-lg">Skills</span>
           </header>
           {skills.map((skill, index) => (
