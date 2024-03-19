@@ -4,7 +4,7 @@ import CVPersonalInfo from './CVPersonalInfo';
 import CVSummary from './CVSummary';
 import CVSkill from './CVSkill';
 import CVWorkExperience from './CVWorkExperience';
-import CVQualification from './CVQualificationsSection';
+import CVQualification from './CVQualification';
 import CVEducation from './CVEducation';
 
 function OutputSection({ formValues, labelsToIds }) {
