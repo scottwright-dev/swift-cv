@@ -73,31 +73,31 @@ export const formSections = [
     repeatable: true,
     fields: [
       {
-        id: 'work-experience-position-' + crypto.randomUUID(),
+        id: 'work-position-' + crypto.randomUUID(),
         label: 'Position',
         type: 'text',
         placeholder: '',
       },
       {
-        id: 'work-experience-company-' + crypto.randomUUID(),
+        id: 'work-company-' + crypto.randomUUID(),
         label: 'Company',
         type: 'text',
         placeholder: '',
       },
       {
-        id: 'work-experience-startdate-' + crypto.randomUUID(),
+        id: 'work-startdate-' + crypto.randomUUID(),
         label: 'Start Date',
         type: 'text',
         placeholder: '',
       },
       {
-        id: 'work-experience-enddate-' + crypto.randomUUID(),
+        id: 'work-enddate-' + crypto.randomUUID(),
         label: 'End Date',
         type: 'text',
         placeholder: '',
       },
       {
-        id: 'work-experience-description-' + crypto.randomUUID(),
+        id: 'work-description-' + crypto.randomUUID(),
         label: 'Description',
         type: 'textarea',
         placeholder: 'Enter details here. Recommended max 200 words.',
