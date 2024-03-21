@@ -3,12 +3,20 @@ import FileInput from './FileInput';
 import PropTypes from 'prop-types';
 import { TrashIcon } from '@heroicons/react/24/outline';
 
-function InputField({ field, value, onChange, onDelete }) {
+function InputField({ field, value, onChange }) {
   const showDeleteButton = () => {
     if (field.type === 'file') {
       return value !== null && value !== undefined;
     } else {
       return value !== '';
+    }
+  };
+
+  const handleDelete = () => {
+    if (field.type === 'file') {
+      onChange(null);
+    } else {
+      onChange('');
     }
   };
 
@@ -33,7 +41,7 @@ function InputField({ field, value, onChange, onDelete }) {
         )}
       </div>
       {showDeleteButton() && (
-        <button onClick={() => onDelete(field.id)} className="ml-2">
+        <button onClick={handleDelete} className="ml-2">
           <TrashIcon className="h-5 w-5 text-gray-400 hover:text-gray-900" />
         </button>
       )}
@@ -45,7 +53,6 @@ InputField.propTypes = {
   field: PropTypes.object.isRequired,
   value: PropTypes.any,
   onChange: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
 };
 
 export default InputField;
