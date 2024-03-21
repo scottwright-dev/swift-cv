@@ -2,7 +2,7 @@ import InputBasic from './InputBasic';
 import FileInput from './FileInput';
 import PropTypes from 'prop-types';
 
-function FormField({ field, value, onChange }) {
+function InputField({ field, value, onChange }) {
   return (
     <>
       {field.type === 'file' && (
@@ -26,10 +26,10 @@ function FormField({ field, value, onChange }) {
   );
 }
 
-FormField.propTypes = {
+InputField.propTypes = {
   field: PropTypes.object.isRequired,
   value: PropTypes.any,
   onChange: PropTypes.func.isRequired,
 };
 
-export default FormField;
+export default InputField;
