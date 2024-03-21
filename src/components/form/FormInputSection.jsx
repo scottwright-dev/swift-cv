@@ -4,7 +4,7 @@ import { formSections } from '../../structure/formStructure';
 import InputSectionDisclosure from './FormSectionDisclosurePanel';
 import { addNewFieldSet } from '../formUtils/addFieldSetUtil';
 
-function InputSection({ onInputChange, formValues }) {
+function FormInputSection({ onInputChange, onDelete, formValues }) {
   // Manages the sections of the form
   const [sections, setSections] = useState(formSections);
 
@@ -32,6 +32,7 @@ function InputSection({ onInputChange, formValues }) {
                 section={section}
                 formValues={formValues}
                 handleFieldChange={handleFieldChange}
+                onDelete={onDelete} // pass onDelete prop
                 addFieldSet={addFieldSet}
               />
             ))}
@@ -42,9 +43,10 @@ function InputSection({ onInputChange, formValues }) {
   );
 }
 
-InputSection.propTypes = {
+FormInputSection.propTypes = {
   onInputChange: PropTypes.func,
+  onDelete: PropTypes.func, // add onDelete to propTypes
   formValues: PropTypes.object.isRequired,
 };
 
-export default InputSection;
+export default FormInputSection;

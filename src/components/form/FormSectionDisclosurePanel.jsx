@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import InputFields from './InputFieldGroup';
 import ButtonCircular from '../ButtonCircular';
 
-function InputSectionDisclosure({
+function FormSectionDisclosurePanel({
   section,
   formValues,
   handleFieldChange,
@@ -45,11 +45,11 @@ function InputSectionDisclosure({
   );
 }
 
-InputSectionDisclosure.propTypes = {
+FormSectionDisclosurePanel.propTypes = {
   section: PropTypes.object.isRequired,
   formValues: PropTypes.object.isRequired,
   handleFieldChange: PropTypes.func.isRequired,
   addFieldSet: PropTypes.func.isRequired,
 };
 
-export default InputSectionDisclosure;
+export default FormSectionDisclosurePanel;

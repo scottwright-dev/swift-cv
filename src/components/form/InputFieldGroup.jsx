@@ -1,8 +1,7 @@
-// InputFields.jsx
 import PropTypes from 'prop-types';
 import FormField from './InputField';
 
-const InputFields = ({ section, formValues, handleFieldChange }) => {
+function InputFieldGroup({ section, formValues, handleFieldChange }) {
   return (
     <div>
       {section.fields.map((field) => (
@@ -15,12 +14,12 @@ const InputFields = ({ section, formValues, handleFieldChange }) => {
       ))}
     </div>
   );
-};
+}
 
-InputFields.propTypes = {
+InputFieldGroup.propTypes = {
   section: PropTypes.object.isRequired,
   formValues: PropTypes.object.isRequired,
   handleFieldChange: PropTypes.func.isRequired,
 };
 
-export default InputFields;
+export default InputFieldGroup;
