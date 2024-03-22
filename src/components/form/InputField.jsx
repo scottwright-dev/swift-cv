@@ -1,5 +1,5 @@
 import InputBasic from './InputBasic';
-import FileInput from './FileInput';
+import FormFileInput from './FormFileInput';
 import PropTypes from 'prop-types';
 import { TrashIcon } from '@heroicons/react/24/outline';
 
@@ -24,7 +24,7 @@ function InputField({ field, value, onChange }) {
     <div className="flex items-center">
       <div className="flex-grow">
         {field.type === 'file' ? (
-          <FileInput
+          <FormFileInput
             label={field.label}
             isOptional={field.isOptional}
             onFileSelect={(file) => onChange(file)}

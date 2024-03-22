@@ -2,8 +2,9 @@ import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import ButtonSecondary from '../ButtonSecondary';
 
-function FileInput({ label, isOptional, onFileSelect }) {
-  // ref to store file input DOM element for direct manipulation
+function FormFileInput({ label, isOptional, onFileSelect }) {
+  // Reference to the file input DOM element,
+  // used to trigger the file selection dialog when the custom button is clicked
   const fileInputRef = useRef(null);
   const [imageSrc, setImageSrc] = useState('');
 
@@ -17,7 +18,8 @@ function FileInput({ label, isOptional, onFileSelect }) {
     }
   };
 
-  // function to click the hidden file input when the custom button is clicked
+  // Function to simulate a click on the hidden file input element,
+  // this is used to open the file selection dialog when the custom button is clicked
   const handleClick = () => {
     fileInputRef.current.click();
   };
@@ -33,7 +35,7 @@ function FileInput({ label, isOptional, onFileSelect }) {
           {imageSrc ? (
             <img
               src={imageSrc}
-              alt="Uploaded profile"
+              alt="Uploaded profile image"
               className="h-full w-full object-cover"
             />
           ) : (
@@ -62,10 +64,10 @@ function FileInput({ label, isOptional, onFileSelect }) {
   );
 }
 
-FileInput.propTypes = {
+FormFileInput.propTypes = {
   label: PropTypes.string.isRequired,
   isOptional: PropTypes.bool,
   onFileSelect: PropTypes.func.isRequired,
 };
 
-export default FileInput;
+export default FormFileInput;
