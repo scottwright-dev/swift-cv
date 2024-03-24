@@ -1,12 +1,15 @@
 export function extractFormFieldsByPrefix(formValues, prefix) {
-  return Object.entries(formValues)
-    .filter(([key]) => key.startsWith(prefix))
-    .reduce((acc, [key, value]) => {
+  const fieldGroups = {};
+
+  Object.entries(formValues).forEach(([key, value]) => {
+    if (key.startsWith(prefix)) {
       const [, fieldName, index] = key.split('-');
-      if (!acc[index]) {
-        acc[index] = {};
+      if (!fieldGroups[index]) {
+        fieldGroups[index] = {};
       }
-      acc[index][fieldName] = value;
-      return acc;
-    }, {});
+      fieldGroups[index][fieldName] = value;
+    }
+  });
+
+  return Object.values(fieldGroups);
 }

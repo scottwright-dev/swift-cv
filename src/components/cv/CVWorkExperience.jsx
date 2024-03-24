@@ -1,43 +1,46 @@
 import PropTypes from 'prop-types';
-import CVSection from './CVSection';
 import { extractFormFieldsByPrefix } from '../formUtils/extractFormFieldsByPrefix';
-function CVWorkExperience({ formValues }) {
-  const workExperienceItems = extractFormFieldsByPrefix(formValues, 'work-');
 
-  const renderWorkExperienceItem = (item) => (
-    <>
-      <div className="flex items-center">
-        <span className="mr-2.5 text-base leading-none">•</span>
-        <span>
-          {item.company && <span>{item.company}</span>}
-          {item.position && item.company && <span>, </span>}
-          {item.position && <span>{item.position}</span>}
-        </span>
-      </div>
-      {(item.startdate || item.enddate) && (
-        <div className="flex items-center">
-          <span className="mr-2.5 text-base leading-none">•</span>
-          <span>
+function CVWorkExperience({ formValues }) {
+  const workExperienceGroups = Object.values(
+    extractFormFieldsByPrefix(formValues, 'work-'),
+  );
+
+  const renderWorkExperienceItem = (item, index) => {
+    return (
+      <div key={`work-experience-${index}`} className="mb-4">
+        {(item.position || item.company) && (
+          <div className="flex items-center">
+            {item.position && (
+              <span className="font-bold">{item.position}</span>
+            )}
+            {item.position && item.company && <span>, </span>}
+            {item.company && (
+              <span className="font-thin text-gray-500">{item.company}</span>
+            )}
+          </div>
+        )}
+        {(item.startdate || item.enddate) && (
+          <div className="flex items-center">
             {item.startdate && <span>{item.startdate}</span>}
             {item.startdate && item.enddate && <span> - </span>}
             {item.enddate && <span>{item.enddate}</span>}
-          </span>
-        </div>
-      )}
-      {item.description && (
-        <div className="whitespace-pre-line">
-          <span>{item.description}</span>
-        </div>
-      )}
-    </>
-  );
+          </div>
+        )}
+        {item.description && (
+          <div className="whitespace-pre-line">{item.description}</div>
+        )}
+      </div>
+    );
+  };
 
   return (
-    <CVSection
-      title="Work Experience"
-      items={Object.values(workExperienceItems)}
-      renderItem={renderWorkExperienceItem}
-    />
+    <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
+      <header className="mb-2 flex items-center text-sm font-normal">
+        <span className="text-lg">Work Experience</span>
+      </header>
+      {workExperienceGroups.map(renderWorkExperienceItem)}
+    </section>
   );
 }
 

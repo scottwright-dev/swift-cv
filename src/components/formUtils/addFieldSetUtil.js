@@ -1,16 +1,5 @@
 import { formSections } from '../../structure/formStructure';
 
-const cloneFieldWithNewId = (field, isSkillSection) => {
-  // Prepend 'skill-' to the ID
-  const newId = isSkillSection
-    ? `skill-${crypto.randomUUID()}`
-    : crypto.randomUUID();
-  return {
-    ...field,
-    id: newId,
-  };
-};
-
 export const addNewFieldSet = (currentSections, sectionTitle) => {
   return currentSections.map((section) => {
     if (section.title !== sectionTitle || !section.repeatable) return section;
@@ -24,10 +13,27 @@ export const addNewFieldSet = (currentSections, sectionTitle) => {
     const isSkillSection = sectionTitle
       .toLowerCase()
       .includes('technical skills');
+    const isWorkExperienceSection = sectionTitle
+      .toLowerCase()
+      .includes('work experience');
 
-    const newFieldsSet = templateFields.map((field) =>
-      cloneFieldWithNewId(field, isSkillSection),
-    );
+    const groupId = crypto.randomUUID();
+
+    const newFieldsSet = templateFields.map((field) => {
+      let newId;
+      if (isSkillSection) {
+        newId = `skill-${crypto.randomUUID()}`;
+      } else if (isWorkExperienceSection) {
+        const fieldName = field.id.split('-')[1];
+        newId = `work-${fieldName}-${groupId}`;
+      } else {
+        newId = crypto.randomUUID();
+      }
+      return {
+        ...field,
+        id: newId,
+      };
+    });
 
     return {
       ...section,
