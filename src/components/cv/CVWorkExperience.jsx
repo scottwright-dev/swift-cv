@@ -11,8 +11,8 @@ function CVWorkExperience({ formValues }) {
       <header className="mb-2 flex items-center text-sm font-normal">
         <span className="text-lg">Work Experience</span>
       </header>
-      {workExperienceGroups.map((item, index) => (
-        <div key={`work-experience-${index}`} className="mb-4">
+      {workExperienceGroups.map((item) => (
+        <div key={item.id} className="mb-4">
           <div className="flex items-center">
             {item.position && (
               <span className="font-bold">{item.position}</span>
