@@ -6,10 +6,13 @@ function CVWorkExperience({ formValues }) {
     extractFormFieldsByPrefix(formValues, 'work-'),
   );
 
-  const renderWorkExperienceItem = (item, index) => {
-    return (
-      <div key={`work-experience-${index}`} className="mb-4">
-        {(item.position || item.company) && (
+  return (
+    <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
+      <header className="mb-2 flex items-center text-sm font-normal">
+        <span className="text-lg">Work Experience</span>
+      </header>
+      {workExperienceGroups.map((item, index) => (
+        <div key={`work-experience-${index}`} className="mb-4">
           <div className="flex items-center">
             {item.position && (
               <span className="font-bold">{item.position}</span>
@@ -19,27 +22,18 @@ function CVWorkExperience({ formValues }) {
               <span className="font-thin text-gray-500">{item.company}</span>
             )}
           </div>
-        )}
-        {(item.startdate || item.enddate) && (
-          <div className="flex items-center">
-            {item.startdate && <span>{item.startdate}</span>}
-            {item.startdate && item.enddate && <span> - </span>}
-            {item.enddate && <span>{item.enddate}</span>}
-          </div>
-        )}
-        {item.description && (
-          <div className="whitespace-pre-line">{item.description}</div>
-        )}
-      </div>
-    );
-  };
-
-  return (
-    <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
-      <header className="mb-2 flex items-center text-sm font-normal">
-        <span className="text-lg">Work Experience</span>
-      </header>
-      {workExperienceGroups.map(renderWorkExperienceItem)}
+          {(item.startdate || item.enddate) && (
+            <div className="flex items-center">
+              {item.startdate && <span>{item.startdate}</span>}
+              {item.startdate && item.enddate && <span> - </span>}
+              {item.enddate && <span>{item.enddate}</span>}
+            </div>
+          )}
+          {item.description && (
+            <div className="whitespace-pre-line">{item.description}</div>
+          )}
+        </div>
+      ))}
     </section>
   );
 }
