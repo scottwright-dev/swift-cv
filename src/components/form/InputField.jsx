@@ -1,7 +1,7 @@
 import InputBasic from './InputBasic';
 import FormFileInput from './FormFileInput';
 import PropTypes from 'prop-types';
-import { TrashIcon } from '@heroicons/react/24/outline';
+import { IconTrash } from '@tabler/icons-react';
 
 function InputField({ field, value, onChange }) {
   const showDeleteButton = () => {
@@ -42,7 +42,7 @@ function InputField({ field, value, onChange }) {
       </div>
       {showDeleteButton() && (
         <button onClick={handleDelete} className="ml-2">
-          <TrashIcon className="h-5 w-5 text-gray-400 hover:text-gray-900" />
+          <IconTrash className="h-5 w-5 text-gray-400 hover:text-gray-900" />
         </button>
       )}
     </div>

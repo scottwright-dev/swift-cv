@@ -1,4 +1,10 @@
 import PropTypes from 'prop-types';
+import {
+  IconPhone,
+  IconMail,
+  IconBrandLinkedin,
+  IconWorld,
+} from '@tabler/icons-react';
 
 function CVPersonalInfo({ phone, email, linkedIn, website }) {
   const contactDetails = [phone, email, linkedIn, website];
@@ -13,25 +19,25 @@ function CVPersonalInfo({ phone, email, linkedIn, website }) {
 
           {phone && (
             <div className="ml-3 flex items-center">
-              <span className="mr-2.5 text-base leading-none">•</span>
+              <IconPhone size={16} className="mr-2.5" />
               {phone}
             </div>
           )}
           {email && (
             <div className="ml-3 flex items-center">
-              <span className="mr-2.5 text-base leading-none">•</span>
+              <IconMail size={16} className="mr-2.5" />
               {email}
             </div>
           )}
           {linkedIn && (
             <div className="ml-3 flex items-center">
-              <span className="mr-2.5 text-base leading-none">•</span>
+              <IconBrandLinkedin size={16} className="mr-2.5" />
               {linkedIn}
             </div>
           )}
           {website && (
             <div className="ml-3 flex items-center">
-              <span className="mr-2.5 text-base leading-none">•</span>
+              <IconWorld size={16} className="mr-2.5" />
               {website}
             </div>
           )}
