@@ -6,9 +6,14 @@ function CVWorkExperience({ formValues }) {
     extractFormFieldsByPrefix(formValues, 'work-'),
   );
 
+  const hasContent = workExperienceGroups.some(
+    ({ position, company, startdate, enddate, description }) =>
+      position || company || startdate || enddate || description,
+  );
+
   return (
     <>
-      {workExperienceGroups.length > 0 && (
+      {hasContent && (
         <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
           <header className="mb-2 flex items-center text-sm font-normal">
             <span className="text-lg">Work Experience</span>
