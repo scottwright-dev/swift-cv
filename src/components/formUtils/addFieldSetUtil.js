@@ -10,32 +10,24 @@ export const addNewFieldSet = (currentSections, sectionTitle) => {
 
     if (!templateFields) return section;
 
-    const isSkillSection = sectionTitle
-      .toLowerCase()
-      .includes('technical skills');
-    const isWorkExperienceSection = sectionTitle
-      .toLowerCase()
-      .includes('work experience');
-    const isQualificationSection = sectionTitle
-      .toLowerCase()
-      .includes('qualification');
-    const isEducationSection = sectionTitle.toLowerCase().includes('education');
+    const sectionTypes = {
+      'technical skills': 'skill',
+      'work experience': 'work',
+      'qualification': 'qualification',
+      'education': 'education',
+    };
+
+    const sectionType = Object.keys(sectionTypes).find((type) =>
+      sectionTitle.toLowerCase().includes(type),
+    );
 
     const groupId = crypto.randomUUID();
 
     const newFieldsSet = templateFields.map((field) => {
       let newId;
-      if (isSkillSection) {
-        newId = `skill-${crypto.randomUUID()}`;
-      } else if (isWorkExperienceSection) {
+      if (sectionType) {
         const fieldName = field.id.split('-')[1];
-        newId = `work-${fieldName}-${groupId}`;
-      } else if (isQualificationSection) {
-        const fieldName = field.id.split('-')[1];
-        newId = `qualification-${fieldName}-${groupId}`;
-      } else if (isEducationSection) {
-        const fieldName = field.id.split('-')[1];
-        newId = `education-${fieldName}-${groupId}`;
+        newId = `${sectionTypes[sectionType]}-${fieldName}-${groupId}`;
       } else {
         newId = crypto.randomUUID();
       }
