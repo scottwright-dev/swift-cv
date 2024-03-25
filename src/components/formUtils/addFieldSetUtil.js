@@ -19,6 +19,7 @@ export const addNewFieldSet = (currentSections, sectionTitle) => {
     const isQualificationSection = sectionTitle
       .toLowerCase()
       .includes('qualification');
+    const isEducationSection = sectionTitle.toLowerCase().includes('education');
 
     const groupId = crypto.randomUUID();
 
@@ -32,6 +33,9 @@ export const addNewFieldSet = (currentSections, sectionTitle) => {
       } else if (isQualificationSection) {
         const fieldName = field.id.split('-')[1];
         newId = `qualification-${fieldName}-${groupId}`;
+      } else if (isEducationSection) {
+        const fieldName = field.id.split('-')[1];
+        newId = `education-${fieldName}-${groupId}`;
       } else {
         newId = crypto.randomUUID();
       }

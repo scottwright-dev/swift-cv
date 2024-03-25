@@ -1,39 +1,44 @@
 import PropTypes from 'prop-types';
-import CVSection from './CVSection';
 import { extractFormFieldsByPrefix } from '../formUtils/extractFormFieldsByPrefix';
 
 function CVEducation({ formValues }) {
-  const educationItems = extractFormFieldsByPrefix(formValues, 'education-');
-
-  const renderEducationItem = (item) => (
-    <>
-      <div className="flex items-center">
-        <span className="mr-2.5 text-base leading-none">•</span>
-        <span>
-          {item.school && <span>{item.school}</span>}
-          {item.name && item.school && <span>, </span>}
-          {item.name && <span>{item.name}</span>}
-        </span>
-      </div>
-      {(item.startdate || item.enddate) && (
-        <div className="flex items-center">
-          <span className="mr-2.5 text-base leading-none">•</span>
-          <span>
-            {item.startdate && <span>{item.startdate}</span>}
-            {item.startdate && item.enddate && <span> - </span>}
-            {item.enddate && <span>{item.enddate}</span>}
-          </span>
-        </div>
-      )}
-    </>
+  const educationGroups = Object.values(
+    extractFormFieldsByPrefix(formValues, 'education-'),
   );
 
+  const hasContent = educationGroups.some(
+    ({ name, school, startdate, enddate }) =>
+      name || school || startdate || enddate,
+  );
+
+  if (!hasContent) {
+    return null;
+  }
+
   return (
-    <CVSection
-      title="Education"
-      items={Object.values(educationItems)}
-      renderItem={renderEducationItem}
-    />
+    <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
+      <header className="mb-2 flex items-center text-sm font-normal">
+        <span className="text-lg">Education</span>
+      </header>
+      {educationGroups.map((item) => (
+        <div key={item.id} className="mb-4">
+          <div className="flex items-center">
+            {item.name && <span className="font-bold">{item.name}</span>}
+            {item.name && item.school && <span>, </span>}
+            {item.school && (
+              <span className="font-thin text-gray-500">{item.school}</span>
+            )}
+          </div>
+          {(item.startdate || item.enddate) && (
+            <div className="flex items-center">
+              {item.startdate && <span>{item.startdate}</span>}
+              {item.startdate && item.enddate && <span> - </span>}
+              {item.enddate && <span>{item.enddate}</span>}
+            </div>
+          )}
+        </div>
+      ))}
+    </section>
   );
 }
 
