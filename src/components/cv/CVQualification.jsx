@@ -18,12 +18,19 @@ function CVQualification({ formValues }) {
   return (
     <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
       <header className="mb-2 flex items-center text-sm font-normal">
-        <span className="text-lg">Qualifications</span>
+        <span className="text-lg">
+          <span
+            className="inline-block border-b-2 border-slate-200"
+            style={{ width: '35px' }}
+          >
+            Qualifications
+          </span>
+        </span>
       </header>
       {qualificationGroups.map((item) => (
         <div key={item.id} className="mb-4">
           <div className="flex items-center">
-            {item.name && <span className="font-bold">{item.name}</span>}
+            {item.name && <span className="font-semibold">{item.name}</span>}
             {item.name && item.institute && <span>, </span>}
             {item.institute && (
               <span className="font-thin text-gray-500">{item.institute}</span>

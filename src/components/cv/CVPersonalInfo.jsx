@@ -14,29 +14,36 @@ function CVPersonalInfo({ phone, email, linkedIn, website }) {
       {contactDetails.some((detail) => detail) && (
         <>
           <header className="mb-2 flex items-center text-sm font-normal">
-            <span className="text-lg">Contact</span>
+            <span className="text-lg">
+              <span
+                className="inline-block border-b-2 border-slate-200"
+                style={{ width: '35px' }}
+              >
+                Contact
+              </span>
+            </span>
           </header>
 
           {phone && (
-            <div className="ml-3 flex items-center">
+            <div className="flex items-center pb-1">
               <IconPhone size={16} className="mr-2.5" />
               {phone}
             </div>
           )}
           {email && (
-            <div className="ml-3 flex items-center">
+            <div className="flex items-center pb-1">
               <IconMail size={16} className="mr-2.5" />
               {email}
             </div>
           )}
           {linkedIn && (
-            <div className="ml-3 flex items-center">
+            <div className="flex items-center pb-1">
               <IconBrandLinkedin size={16} className="mr-2.5" />
               {linkedIn}
             </div>
           )}
           {website && (
-            <div className="ml-3 flex items-center">
+            <div className="flex items-center pb-1">
               <IconWorld size={16} className="mr-2.5" />
               {website}
             </div>

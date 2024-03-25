@@ -17,14 +17,20 @@ function CVWorkExperience({ formValues }) {
 
   return (
     <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
-      <header className="mb-2 flex items-center text-sm font-normal">
-        <span className="text-lg">Work Experience</span>
+      <header className="relative mb-2 text-sm font-normal">
+        <span className="text-lg">
+          Work Experience
+          <span
+            className="absolute bottom-0 left-0 border-b-2 border-slate-200"
+            style={{ width: '35px' }}
+          ></span>
+        </span>
       </header>
       {workExperienceGroups.map((item) => (
         <div key={item.id} className="mb-4">
           <div className="flex items-center">
             {item.position && (
-              <span className="font-bold">{item.position}</span>
+              <span className="font-semibold">{item.position}</span>
             )}
             {item.position && item.company && <span>, </span>}
             {item.company && (

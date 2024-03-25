@@ -18,7 +18,14 @@ function CVEducation({ formValues }) {
   return (
     <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
       <header className="mb-2 flex items-center text-sm font-normal">
-        <span className="text-lg">Education</span>
+        <span className="text-lg">
+          <span
+            className="inline-block border-b-2 border-slate-200"
+            style={{ width: '35px' }}
+          >
+            Education
+          </span>
+        </span>
       </header>
       {educationGroups.map((item) => (
         <div key={item.id} className="mb-4">

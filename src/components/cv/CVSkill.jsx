@@ -11,7 +11,14 @@ function CVSkill({ formValues }) {
       {skills.length > 0 && (
         <>
           <header className="mb-2 flex items-center text-sm font-normal">
-            <span className="text-lg">Skills</span>
+            <span className="text-lg">
+              <span
+                className="inline-block border-b-2 border-slate-200"
+                style={{ width: '35px' }}
+              >
+                Skills
+              </span>
+            </span>
           </header>
           {skills.map((skill, index) => (
             <div key={index} className="ml-3 flex items-center">
