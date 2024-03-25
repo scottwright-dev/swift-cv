@@ -16,6 +16,9 @@ export const addNewFieldSet = (currentSections, sectionTitle) => {
     const isWorkExperienceSection = sectionTitle
       .toLowerCase()
       .includes('work experience');
+    const isQualificationSection = sectionTitle
+      .toLowerCase()
+      .includes('qualification');
 
     const groupId = crypto.randomUUID();
 
@@ -26,18 +29,16 @@ export const addNewFieldSet = (currentSections, sectionTitle) => {
       } else if (isWorkExperienceSection) {
         const fieldName = field.id.split('-')[1];
         newId = `work-${fieldName}-${groupId}`;
+      } else if (isQualificationSection) {
+        const fieldName = field.id.split('-')[1];
+        newId = `qualification-${fieldName}-${groupId}`;
       } else {
         newId = crypto.randomUUID();
       }
-      return {
-        ...field,
-        id: newId,
-      };
+
+      return { ...field, id: newId };
     });
 
-    return {
-      ...section,
-      fields: [...section.fields, ...newFieldsSet],
-    };
+    return { ...section, fields: [...section.fields, ...newFieldsSet] };
   });
 };
