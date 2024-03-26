@@ -26,25 +26,25 @@ function CVPersonalInfo({ phone, email, linkedIn, website }) {
 
           {phone && (
             <div className="flex items-center pb-1">
-              <IconPhone size={16} className="mr-2.5" />
+              <IconPhone size={16} stroke={1} className="mr-2.5" />
               {phone}
             </div>
           )}
           {email && (
             <div className="flex items-center pb-1">
-              <IconMail size={16} className="mr-2.5" />
+              <IconMail size={16} stroke={1} className="mr-2.5" />
               {email}
             </div>
           )}
           {linkedIn && (
             <div className="flex items-center pb-1">
-              <IconBrandLinkedin size={16} className="mr-2.5" />
+              <IconBrandLinkedin size={16} stroke={1} className="mr-2.5" />
               {linkedIn}
             </div>
           )}
           {website && (
             <div className="flex items-center pb-1">
-              <IconWorld size={16} className="mr-2.5" />
+              <IconWorld size={16} stroke={1} className="mr-2.5" />
               {website}
             </div>
           )}
