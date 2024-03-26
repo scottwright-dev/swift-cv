@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import ButtonSecondary from '../ButtonSecondary';
 
-function FormFileInput({ label, isOptional, onFileSelect }) {
+function FormFileInput({ label, isOptional, onFileSelect, onChange }) {
   // Reference to the file input DOM element,
   // used to trigger the file selection dialog when the custom button is clicked
   const fileInputRef = useRef(null);
@@ -15,6 +15,7 @@ function FormFileInput({ label, isOptional, onFileSelect }) {
       const fileUrl = URL.createObjectURL(file);
       setImageSrc(fileUrl);
       onFileSelect(fileUrl);
+      onChange(fileUrl);
     }
   };
 
@@ -68,6 +69,7 @@ FormFileInput.propTypes = {
   label: PropTypes.string.isRequired,
   isOptional: PropTypes.bool,
   onFileSelect: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default FormFileInput;
