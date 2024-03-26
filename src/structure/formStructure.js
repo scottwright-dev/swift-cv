@@ -2,54 +2,53 @@ export const formSections = [
   {
     title: 'Personal Information',
     fields: (() => {
-      const groupId = crypto.randomUUID();
       return [
         {
-          id: `personal-photo-${groupId}`,
+          id: `personal-photo`,
           label: 'Photo',
           type: 'file',
           placeholder: '',
           isOptional: true,
         },
         {
-          id: `personal-name-${groupId}`,
+          id: `personal-name`,
           label: 'Name',
           type: 'text',
           placeholder: '',
         },
         {
-          id: `personal-surname-${groupId}`,
+          id: `personal-surname`,
           label: 'Surname',
           type: 'text',
           placeholder: '',
         },
         {
-          id: `personal-jobtitle-${groupId}`,
+          id: `personal-jobtitle`,
           label: 'Job Title',
           type: 'text',
           placeholder: '',
         },
         {
-          id: `personal-phone-${groupId}`,
+          id: `personal-phone`,
           label: 'Phone',
           type: 'text',
           placeholder: '',
         },
         {
-          id: `personal-email-${groupId}`,
+          id: `personal-email`,
           label: 'Email',
           type: 'email',
           placeholder: '',
         },
         {
-          id: `personal-linkedin-${groupId}`,
+          id: `personal-linkedin`,
           label: 'LinkedIn',
           type: 'url',
           placeholder: '',
           isOptional: true,
         },
         {
-          id: `personal-website-${groupId}`,
+          id: `personal-website`,
           label: 'Website',
           type: 'url',
           placeholder: '',
@@ -62,7 +61,7 @@ export const formSections = [
     title: 'Summary',
     fields: [
       {
-        id: 'summary-' + crypto.randomUUID(),
+        id: 'summary',
         label: 'Summary',
         type: 'textarea',
         placeholder:
@@ -74,41 +73,38 @@ export const formSections = [
   {
     title: 'Work Experience',
     repeatable: true,
-    fields: (() => {
-      const groupId = crypto.randomUUID();
-      return [
-        {
-          id: `work-position-${groupId}`,
-          label: 'Position',
-          type: 'text',
-          placeholder: '',
-        },
-        {
-          id: `work-company-${groupId}`,
-          label: 'Company',
-          type: 'text',
-          placeholder: '',
-        },
-        {
-          id: `work-startdate-${groupId}`,
-          label: 'Start Date',
-          type: 'text',
-          placeholder: '',
-        },
-        {
-          id: `work-enddate-${groupId}`,
-          label: 'End Date',
-          type: 'text',
-          placeholder: '',
-        },
-        {
-          id: `work-description-${groupId}`,
-          label: 'Description',
-          type: 'textarea',
-          placeholder: 'Enter details here. Recommended max 200 words.',
-        },
-      ];
-    })(),
+    fields: [
+      {
+        id: 'work-position',
+        label: 'Position',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: 'work-company',
+        label: 'Company',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: 'work-startdate',
+        label: 'Start Date',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: 'work-enddate',
+        label: 'End Date',
+        type: 'text',
+        placeholder: '',
+      },
+      {
+        id: 'work-description',
+        label: 'Description',
+        type: 'textarea',
+        placeholder: 'Enter details here. Recommended max 200 words.',
+      },
+    ],
     addButton: true,
   },
   {
@@ -116,7 +112,7 @@ export const formSections = [
     repeatable: true,
     fields: [
       {
-        id: 'skill-' + crypto.randomUUID(),
+        id: 'skill-',
         label: 'Skill',
         type: 'text',
         placeholder: '',
@@ -128,28 +124,27 @@ export const formSections = [
     title: 'Qualifications',
     repeatable: true,
     fields: (() => {
-      const groupId = crypto.randomUUID();
       return [
         {
-          id: `qualification-name-${groupId}`,
+          id: `qualification-name`,
           label: 'Qualification',
           type: 'text',
           placeholder: '',
         },
         {
-          id: `qualification-institute-${groupId}`,
+          id: `qualification-institute`,
           label: 'Institute',
           type: 'text',
           placeholder: '',
         },
         {
-          id: `qualification-startdate-${groupId}`,
+          id: `qualification-startdate`,
           label: 'Start Date',
           type: 'text',
           placeholder: '',
         },
         {
-          id: `qualification-enddate-${groupId}`,
+          id: `qualification-enddate`,
           label: 'End Date',
           type: 'text',
           placeholder: '',
@@ -162,22 +157,21 @@ export const formSections = [
     title: 'Education',
     repeatable: true,
     fields: (() => {
-      const groupId = crypto.randomUUID();
       return [
         {
-          id: `education-school-${groupId}`,
+          id: `education-school`,
           label: 'School',
           type: 'text',
           placeholder: '',
         },
         {
-          id: `education-startdate-${groupId}`,
+          id: `education-startdate`,
           label: 'Start Date',
           type: 'text',
           placeholder: '',
         },
         {
-          id: `education-enddate-${groupId}`,
+          id: `education-enddate`,
           label: 'End Date',
           type: 'text',
           placeholder: '',

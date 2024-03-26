@@ -10,12 +10,14 @@ function FormInputSection({ onInputChange, onDelete, formValues }) {
 
   // Function to add a new set of fields to a section
   const addFieldSet = (sectionTitle) => {
-    setSections((prevSections) => addNewFieldSet(prevSections, sectionTitle));
+    const groupId = crypto.randomUUID();
+    setSections((prevSections) =>
+      addNewFieldSet(prevSections, sectionTitle, groupId),
+    );
   };
-
   // handles changes to any field in the form, updating the formValues state with new value
   const handleFieldChange = (id, value) => {
-    // Propagate change event to parent component if handler is provided.
+    // Propagate change event to parent component if handler is provided
     if (onInputChange) {
       onInputChange(id, value);
     }
@@ -32,7 +34,7 @@ function FormInputSection({ onInputChange, onDelete, formValues }) {
                 section={section}
                 formValues={formValues}
                 handleFieldChange={handleFieldChange}
-                onDelete={onDelete} // pass onDelete prop
+                onDelete={onDelete}
                 addFieldSet={addFieldSet}
               />
             ))}
@@ -45,7 +47,7 @@ function FormInputSection({ onInputChange, onDelete, formValues }) {
 
 FormInputSection.propTypes = {
   onInputChange: PropTypes.func,
-  onDelete: PropTypes.func, // add onDelete to propTypes
+  onDelete: PropTypes.func,
   formValues: PropTypes.object.isRequired,
 };
 
