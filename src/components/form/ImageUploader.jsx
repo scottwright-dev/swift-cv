@@ -6,7 +6,7 @@ function ImageUploader({ label, isOptional, onImageSelect }) {
   // Reference to the file input DOM element,
   // used to trigger the file selection dialog when the custom button is clicked
   const fileInputRef = useRef(null);
-  const [imageSrc, setImageSrc] = useState('');
+  const [imageSrc, setImageSrc] = useState(localStorage.getItem('image') || '');
   const [errorMsg, setErrorMsg] = useState('');
 
   // handles photo upload
