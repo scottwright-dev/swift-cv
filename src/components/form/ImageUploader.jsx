@@ -1,18 +1,26 @@
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import ButtonSecondary from '../ButtonSecondary';
+import { IconTrash } from '@tabler/icons-react';
 
-function ImageUploader({ label, isOptional, onImageSelect }) {
+function ImageUploader({
+  label,
+  isOptional,
+  onImageSelect,
+  onImageDelete,
+  photo,
+}) {
   // Reference to the file input DOM element,
   // used to trigger the file selection dialog when the custom button is clicked
   const fileInputRef = useRef(null);
-  const [imageSrc, setImageSrc] = useState(localStorage.getItem('image') || '');
+  const [imageSrc, setImageSrc] = useState(photo || '');
   const [errorMsg, setErrorMsg] = useState('');
 
   // handles photo upload
   const handleImageUpload = (event) => {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
+
       // error handling if photo exceeds 1MB
       if (file.size > 1000000) {
         setErrorMsg('File is too large, please upload a file less than 1MB.');
@@ -20,14 +28,20 @@ function ImageUploader({ label, isOptional, onImageSelect }) {
       }
 
       setErrorMsg(''); // Clear error message
+
       const reader = new FileReader();
       reader.onloadend = function () {
-        localStorage.setItem('image', reader.result);
         setImageSrc(reader.result);
         onImageSelect(reader.result);
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  // handle image deletion
+  const handleImageDelete = () => {
+    setImageSrc('');
+    onImageDelete(); // deletes rendered img
   };
 
   // Function to simulate a click on the hidden file input element,
@@ -69,8 +83,14 @@ function ImageUploader({ label, isOptional, onImageSelect }) {
             accept="image/jpeg, image/png, image/webp"
             aria-label={label + (isOptional ? ' (optional)' : '')}
           />
-          <ButtonSecondary text="Add Photo" onClick={handleClick} />
-          {errorMsg && <p className="mt-2 text-red-500">{errorMsg}</p>}{' '}
+          <div className="flex items-center">
+            <ButtonSecondary text="Add Photo" onClick={handleClick} />
+            <IconTrash
+              className="ml-5 h-5 w-5 cursor-pointer text-gray-400 hover:text-gray-900"
+              onClick={handleImageDelete}
+            />
+          </div>
+          {errorMsg && <p className="mt-2 text-red-500">{errorMsg}</p>}
         </div>
       </div>
     </div>
@@ -81,6 +101,8 @@ ImageUploader.propTypes = {
   label: PropTypes.string.isRequired,
   isOptional: PropTypes.bool,
   onImageSelect: PropTypes.func.isRequired,
+  photo: PropTypes.string,
+  onImageDelete: PropTypes.func.isRequired,
 };
 
 export default ImageUploader;

@@ -3,7 +3,7 @@ import ImageUploader from './ImageUploader';
 import PropTypes from 'prop-types';
 import { IconTrash } from '@tabler/icons-react';
 
-function InputField({ field, value, onChange }) {
+function InputField({ field, value, onChange, onDelete }) {
   const showDeleteButton = () => {
     if (field.type === 'file') {
       return value !== null && value !== undefined;
@@ -18,6 +18,9 @@ function InputField({ field, value, onChange }) {
     } else {
       onChange('');
     }
+    if (onDelete) {
+      onDelete();
+    }
   };
 
   return (
@@ -28,6 +31,8 @@ function InputField({ field, value, onChange }) {
             label={field.label}
             isOptional={field.isOptional}
             onImageSelect={(file) => onChange(file)}
+            onImageDelete={handleDelete}
+            photo={value}
           />
         ) : (
           <InputBasic
@@ -53,6 +58,7 @@ InputField.propTypes = {
   field: PropTypes.object.isRequired,
   value: PropTypes.any,
   onChange: PropTypes.func.isRequired,
+  onDelete: PropTypes.func,
 };
 
 export default InputField;
