@@ -1,5 +1,5 @@
 import InputBasic from './InputBasic';
-import FormFileInput from './FormFileInput';
+import ImageUploader from './ImageUploader';
 import PropTypes from 'prop-types';
 import { IconTrash } from '@tabler/icons-react';
 
@@ -24,10 +24,10 @@ function InputField({ field, value, onChange }) {
     <div className="flex items-center">
       <div className="flex-grow">
         {field.type === 'file' ? (
-          <FormFileInput
+          <ImageUploader
             label={field.label}
             isOptional={field.isOptional}
-            onFileSelect={(file) => onChange(file)}
+            onImageSelect={(file) => onChange(file)}
           />
         ) : (
           <InputBasic

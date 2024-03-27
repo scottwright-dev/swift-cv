@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import ButtonSecondary from '../ButtonSecondary';
 
-function FormFileInput({ label, isOptional, onFileSelect, onChange }) {
+function ImageUploader({ label, isOptional, onImageSelect }) {
   // Reference to the file input DOM element,
   // used to trigger the file selection dialog when the custom button is clicked
   const fileInputRef = useRef(null);
@@ -10,7 +10,7 @@ function FormFileInput({ label, isOptional, onFileSelect, onChange }) {
   const [errorMsg, setErrorMsg] = useState('');
 
   // handles photo upload
-  const handleFileChange = (event) => {
+  const handleImageUpload = (event) => {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       // error handling if photo exceeds 1MB
@@ -24,8 +24,7 @@ function FormFileInput({ label, isOptional, onFileSelect, onChange }) {
       reader.onloadend = function () {
         localStorage.setItem('image', reader.result);
         setImageSrc(reader.result);
-        onFileSelect(reader.result);
-        onChange(reader.result);
+        onImageSelect(reader.result);
       };
       reader.readAsDataURL(file);
     }
@@ -65,7 +64,7 @@ function FormFileInput({ label, isOptional, onFileSelect, onChange }) {
           <input
             ref={fileInputRef}
             type="file"
-            onChange={handleFileChange}
+            onChange={handleImageUpload}
             className="hidden"
             accept="image/jpeg, image/png, image/webp"
             aria-label={label + (isOptional ? ' (optional)' : '')}
@@ -78,11 +77,10 @@ function FormFileInput({ label, isOptional, onFileSelect, onChange }) {
   );
 }
 
-FormFileInput.propTypes = {
+ImageUploader.propTypes = {
   label: PropTypes.string.isRequired,
   isOptional: PropTypes.bool,
-  onFileSelect: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onImageSelect: PropTypes.func.isRequired,
 };
 
-export default FormFileInput;
+export default ImageUploader;
