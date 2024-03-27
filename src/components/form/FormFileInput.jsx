@@ -7,11 +7,19 @@ function FormFileInput({ label, isOptional, onFileSelect, onChange }) {
   // used to trigger the file selection dialog when the custom button is clicked
   const fileInputRef = useRef(null);
   const [imageSrc, setImageSrc] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   // handles photo upload
   const handleFileChange = (event) => {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
+      // error handling if photo exceeds 1MB
+      if (file.size > 1000000) {
+        setErrorMsg('File is too large, please upload a file less than 1MB.');
+        return;
+      }
+
+      setErrorMsg(''); // Clear error message
       const reader = new FileReader();
       reader.onloadend = function () {
         localStorage.setItem('image', reader.result);
@@ -63,6 +71,7 @@ function FormFileInput({ label, isOptional, onFileSelect, onChange }) {
             aria-label={label + (isOptional ? ' (optional)' : '')}
           />
           <ButtonSecondary text="Add Photo" onClick={handleClick} />
+          {errorMsg && <p className="mt-2 text-red-500">{errorMsg}</p>}{' '}
         </div>
       </div>
     </div>
