@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ButtonSecondary from '../ButtonSecondary';
 import { IconTrash } from '@tabler/icons-react';
@@ -15,6 +15,11 @@ function ImageUploader({
   const fileInputRef = useRef(null);
   const [imageSrc, setImageSrc] = useState(photo || '');
   const [errorMsg, setErrorMsg] = useState('');
+
+  // Update imageSrc whenever photo changes
+  useEffect(() => {
+    setImageSrc(photo || '');
+  }, [photo]);
 
   // handles photo upload
   const handleImageUpload = (event) => {
