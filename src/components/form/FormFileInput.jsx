@@ -8,14 +8,18 @@ function FormFileInput({ label, isOptional, onFileSelect, onChange }) {
   const fileInputRef = useRef(null);
   const [imageSrc, setImageSrc] = useState('');
 
-  // handles file upload
+  // handles photo upload
   const handleFileChange = (event) => {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      const fileUrl = URL.createObjectURL(file);
-      setImageSrc(fileUrl);
-      onFileSelect(fileUrl);
-      onChange(fileUrl);
+      const reader = new FileReader();
+      reader.onloadend = function () {
+        localStorage.setItem('image', reader.result);
+        setImageSrc(reader.result);
+        onFileSelect(reader.result);
+        onChange(reader.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
