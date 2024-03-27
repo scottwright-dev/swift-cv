@@ -6,7 +6,7 @@ import { IconTrash } from '@tabler/icons-react';
 function InputField({ field, value, onChange, onDelete }) {
   const showDeleteButton = () => {
     if (field.type === 'file') {
-      return value !== null && value !== undefined;
+      return false; // Don't show delete button for ImageUploader component
     } else {
       return value !== '';
     }
