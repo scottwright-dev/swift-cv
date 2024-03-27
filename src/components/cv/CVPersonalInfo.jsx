@@ -27,13 +27,13 @@ function CVPersonalInfo({ phone, email, linkedIn, website }) {
           {phone && (
             <div className="flex items-center pb-1">
               <IconPhone size={16} stroke={1} className="mr-2.5" />
-              {phone}
+              <a href={`tel:${phone}`}>{phone}</a>
             </div>
           )}
           {email && (
             <div className="flex items-center pb-1">
               <IconMail size={16} stroke={1} className="mr-2.5" />
-              {email}
+              <a href={`mailto:${email}`}>{email}</a>
             </div>
           )}
           {linkedIn && (
