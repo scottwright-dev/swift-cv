@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media print {
+  .print-output-section {
+    width: 210mm;
+    height: 297mm;
+    page-break-after: always;
+  }
+}

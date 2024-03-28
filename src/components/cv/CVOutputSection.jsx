@@ -25,7 +25,7 @@ function OutputSection({ formValues, labelsToIds }) {
   const CVPersonalInfoFields = { phone, email, linkedIn, website };
 
   return (
-    <section className="flex flex-1 flex-col pt-4 shadow-2xl">
+    <section className="print-output-section flex flex-1 flex-col pt-4 shadow-2xl">
       <header>
         <CVHeader {...CVHeaderFields} />
       </header>
