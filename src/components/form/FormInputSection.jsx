@@ -1,20 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { formSections } from '../../structure/formStructure';
 import InputSectionDisclosure from './FormSectionDisclosurePanel';
-import { addNewFieldSet } from '../formUtils/addFieldSetUtil';
+import { createNewFieldSet } from '../formUtils/createNewFieldSet';
 
 function FormInputSection({ onInputChange, onDelete, formValues }) {
   // Manages the sections of the form
-  const [sections, setSections] = useState(formSections);
+  const [sections, setSections] = useState(() => {
+    const storedSections = localStorage.getItem('formSections');
+    console.log('Stored sections:', storedSections);
+    return storedSections ? JSON.parse(storedSections) : formSections;
+  });
+
+  useEffect(() => {
+    console.log('Updating local storage with sections:', sections);
+    localStorage.setItem('formSections', JSON.stringify(sections));
+  }, [sections]);
 
   // Function to add a new set of fields to a section
   const addFieldSet = (sectionTitle) => {
     const groupId = crypto.randomUUID();
-    setSections((prevSections) =>
-      addNewFieldSet(prevSections, sectionTitle, groupId),
-    );
+    setSections((prevSections) => {
+      const updatedSections = createNewFieldSet(
+        prevSections,
+        sectionTitle,
+        groupId,
+      );
+      return updatedSections;
+    });
   };
+
   // handles changes to any field in the form, updating the formValues state with new value
   const handleFieldChange = (id, value) => {
     // Propagate change event to parent component if handler is provided
