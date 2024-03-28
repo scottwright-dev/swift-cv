@@ -39,14 +39,19 @@ export default function SectionContainer() {
       [id]: value,
     }));
   };
-
+  // handles creating a pdf / saving a cv
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
+  // deletes all user input data in the cv
+  const removeAllData = () => {
+    localStorage.clear();
+    setFormValues({});
+  };
 
   return (
     <>
-      <AppHeader onPrint={handlePrint} />
+      <AppHeader onPrint={handlePrint} onErase={removeAllData} />
       <main className="flex min-h-screen pt-4">
         <section className="flex w-2/5 flex-col">
           <InputSection

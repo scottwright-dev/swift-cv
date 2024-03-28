@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import ButtonPrimary from './ButtonPrimary';
+import ButtonSecondary from './ButtonSecondary';
 
-function Header({ onPrint }) {
+function Header({ onPrint, onErase }) {
   return (
     <header className="md:flex md:items-center md:justify-between">
       <div className="min-w-0 flex-1">
@@ -9,8 +10,13 @@ function Header({ onPrint }) {
           CV Builder
         </h2>
       </div>
-      <div className="mt-4 md:ml-4 md:mt-0">
-        <ButtonPrimary text="Create PDF" onClick={onPrint} />
+      <div className="mt-4 flex md:ml-4 md:mt-0">
+        <div>
+          <ButtonSecondary text="Erase CV" onClick={onErase} />
+        </div>
+        <div className="ml-4">
+          <ButtonPrimary text="Save CV" onClick={onPrint} />
+        </div>
       </div>
     </header>
   );
@@ -18,6 +24,7 @@ function Header({ onPrint }) {
 
 Header.propTypes = {
   onPrint: PropTypes.func.isRequired,
+  onErase: PropTypes.func.isRequired,
 };
 
 export default Header;
