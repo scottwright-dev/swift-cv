@@ -54,14 +54,14 @@ export default function SectionContainer() {
   return (
     <>
       <AppHeader onPrint={handlePrint} onErase={removeAllData} />
-      <main className="flex min-h-screen pt-4">
-        <section className="flex w-2/5 flex-col">
+      <main className="flex min-h-screen flex-col pt-4 md:flex-row">
+        <section className="flex w-full flex-col md:w-2/5">
           <InputSection
             onInputChange={handleInputChange}
             formValues={formValues}
           />
         </section>
-        <section className="flex w-3/5 flex-col">
+        <section className="flex w-full flex-col md:w-3/5">
           <div ref={componentRef}>
             <OutputSection formValues={formValues} labelsToIds={labelsToIds} />
           </div>
