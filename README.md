@@ -1,4 +1,4 @@
-## CV Builder
+## CV Creator
 
 **Currently work in progress.**
 
