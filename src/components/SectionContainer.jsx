@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
 import InputSection from './form/FormInputSection';
 import OutputSection from './cv/CVOutputSection';
 import { formSections } from '../structure/formStructure';
+import AppHeader from './AppHeader';
 
 export default function SectionContainer() {
   const [formValues, setFormValues] = useState({});
+  const componentRef = useRef();
 
   // Load form values from local storage on initial render, if present
   useEffect(() => {
@@ -37,17 +40,26 @@ export default function SectionContainer() {
     }));
   };
 
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
   return (
-    <main className="flex min-h-screen pt-4">
-      <section className="flex w-2/5 flex-col">
-        <InputSection
-          onInputChange={handleInputChange}
-          formValues={formValues}
-        />
-      </section>
-      <section className="flex w-3/5 flex-col">
-        <OutputSection formValues={formValues} labelsToIds={labelsToIds} />
-      </section>
-    </main>
+    <>
+      <AppHeader onPrint={handlePrint} />
+      <main className="flex min-h-screen pt-4">
+        <section className="flex w-2/5 flex-col">
+          <InputSection
+            onInputChange={handleInputChange}
+            formValues={formValues}
+          />
+        </section>
+        <section className="flex w-3/5 flex-col">
+          <div ref={componentRef}>
+            <OutputSection formValues={formValues} labelsToIds={labelsToIds} />
+          </div>
+        </section>
+      </main>
+    </>
   );
 }

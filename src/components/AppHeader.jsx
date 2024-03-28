@@ -1,11 +1,7 @@
+import PropTypes from 'prop-types';
 import ButtonPrimary from './ButtonPrimary';
 
-export default function Header() {
-  // TODO: Implement PDF creation functionality
-  const onClick = () => {
-    console.log('Create PDF functionality not yet implemented');
-  };
-
+function Header({ onPrint }) {
   return (
     <header className="md:flex md:items-center md:justify-between">
       <div className="min-w-0 flex-1">
@@ -13,9 +9,15 @@ export default function Header() {
           CV Builder
         </h2>
       </div>
-      <div className="mt-4 flex md:ml-4 md:mt-0">
-        <ButtonPrimary text="Create PDF" onClick={onClick} />
+      <div className="mt-4 md:ml-4 md:mt-0">
+        <ButtonPrimary text="Create PDF" onClick={onPrint} />
       </div>
     </header>
   );
 }
+
+Header.propTypes = {
+  onPrint: PropTypes.func.isRequired,
+};
+
+export default Header;
