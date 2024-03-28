@@ -8,12 +8,10 @@ function FormInputSection({ onInputChange, onDelete, formValues }) {
   // Manages the sections of the form
   const [sections, setSections] = useState(() => {
     const storedSections = localStorage.getItem('formSections');
-    console.log('Stored sections:', storedSections);
     return storedSections ? JSON.parse(storedSections) : formSections;
   });
 
   useEffect(() => {
-    console.log('Updating local storage with sections:', sections);
     localStorage.setItem('formSections', JSON.stringify(sections));
   }, [sections]);
 
