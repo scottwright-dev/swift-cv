@@ -5,6 +5,15 @@ import OutputSection from './cv/CVOutputSection';
 import { formSections } from '../structure/formStructure';
 import AppHeader from './AppHeader';
 
+// Create a mapping from field labels to their corresponding IDs.
+// This allows for quick lookup of a field's ID based on its label.
+const labelsToIds = {};
+formSections.forEach((section) => {
+  section.fields.forEach((field) => {
+    labelsToIds[field.label] = field.id;
+  });
+});
+
 export default function SectionContainer() {
   const [formValues, setFormValues] = useState({});
   const componentRef = useRef();
@@ -24,13 +33,6 @@ export default function SectionContainer() {
       localStorage.setItem('formValues', JSON.stringify(formValues));
     }
   }, [formValues]);
-
-  const labelsToIds = {};
-  formSections.forEach((section) => {
-    section.fields.forEach((field) => {
-      labelsToIds[field.label] = field.id;
-    });
-  });
 
   // Updates the form values state in response to user input
   const handleInputChange = (id, value) => {
