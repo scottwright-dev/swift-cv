@@ -1,4 +1,4 @@
-## CV Creator
+## Swift CV
 
 **Currently work in progress.**
 
