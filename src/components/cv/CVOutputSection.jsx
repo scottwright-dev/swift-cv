@@ -36,7 +36,7 @@ function OutputSection({ formValues, labelsToIds }) {
   console.log('hasLeftColumnContent:', hasLeftColumnContent);
 
   return (
-    <section className="print-output-section flex h-screen flex-1 flex-col pt-4 shadow-2xl">
+    <section className="print-output-section flex h-screen flex-1 flex-col shadow-2xl">
       <header>
         <CVHeader {...CVHeaderFields} />
       </header>
