@@ -1,8 +1,12 @@
 import PropTypes from 'prop-types';
 
 function CVHeader({ userPhoto, name, surname, jobTitle }) {
+  const hasContent = userPhoto || name || surname || jobTitle;
+
   return (
-    <div className="flex items-center bg-slate-100 p-5">
+    <div
+      className={`flex items-center p-5 ${hasContent ? 'bg-slate-100' : ''}`}
+    >
       {userPhoto && (
         <img
           className="h-24 w-24 rounded-full object-cover"
