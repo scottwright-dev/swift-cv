@@ -20,9 +20,20 @@ function OutputSection({ formValues, labelsToIds }) {
     [labelsToIds['Summary']]: summary,
   } = formValues;
 
+  console.log('formValues;', formValues);
+
   // Grouped fields
   const CVHeaderFields = { userPhoto, name, surname, jobTitle };
   const CVPersonalInfoFields = { phone, email, linkedIn, website };
+
+  // Check if any data is entered in the left column components
+  const hasLeftColumnContent = Object.keys(formValues).some((key) =>
+    ['personal-', 'skill-', 'qualification', 'education'].some(
+      (prefix) => key.startsWith(prefix) && formValues[key].length > 0,
+    ),
+  );
+
+  console.log('hasLeftColumnContent:', hasLeftColumnContent);
 
   return (
     <section className="print-output-section flex h-screen flex-1 flex-col pt-4 shadow-2xl">
@@ -30,7 +41,9 @@ function OutputSection({ formValues, labelsToIds }) {
         <CVHeader {...CVHeaderFields} />
       </header>
       <section className="flex flex-grow">
-        <aside className="w-1/3 border-r pt-2">
+        <aside
+          className={`w-1/3 pt-2 ${hasLeftColumnContent ? 'border-r' : ''}`}
+        >
           <CVPersonalInfo {...CVPersonalInfoFields} />
           <CVSkill formValues={formValues} />
           <CVQualification formValues={formValues} />
