@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 function CVSkill({ formValues }) {
   // Filter and map skills
   const skills = Object.entries(formValues)
-    .filter(([key]) => key.startsWith('skill-'))
+    .filter(([key, value]) => key.startsWith('skill') && value)
     .map(([, value]) => value);
 
   return (
