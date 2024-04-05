@@ -5,8 +5,13 @@ function CVHeader({ userPhoto, name, surname, jobTitle }) {
 
   return (
     <div
-      className={`flex items-center p-5 ${hasContent ? 'bg-slate-100' : ''}`}
+      className={`flex items-center justify-between px-4 py-4 ${hasContent ? 'bg-slate-100' : ''}`}
     >
+      <div>
+        <h1 className="pb-1 text-3xl font-normal">{name || ''}</h1>
+        <h1 className="pb-1 text-3xl font-normal">{surname || ''}</h1>
+        <h2 className="text-2xl font-thin">{`${jobTitle || ''}`}</h2>
+      </div>
       {userPhoto && (
         <img
           className="h-24 w-24 rounded-full object-cover"
@@ -14,12 +19,6 @@ function CVHeader({ userPhoto, name, surname, jobTitle }) {
           alt="Profile photo"
         />
       )}
-      <div className="ml-4">
-        <h1 className="inline-block border-b-2 border-gray-400 pb-1 text-3xl font-normal">
-          {`${name || ''} ${surname || ''}`}
-        </h1>
-        <h2 className="text-2xl font-thin">{`${jobTitle || ''}`}</h2>
-      </div>
     </div>
   );
 }
