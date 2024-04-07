@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-6 lg:px-8">
         <a
           href="https://github.com/scottwright-dev"
-          className="text-gray-400 transition ease-in hover:text-indigo-600"
+          className="text-gray-400 transition ease-in hover:text-blue-900"
         >
           <span className="sr-only">GitHub</span>
           <svg

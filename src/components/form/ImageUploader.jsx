@@ -89,7 +89,11 @@ function ImageUploader({
             aria-label={label + (isOptional ? ' (optional)' : '')}
           />
           <div className="flex items-center">
-            <ButtonSecondary text="Add Photo" onClick={handleClick} />
+            <ButtonSecondary
+              className="bg-blue-900 text-white outline outline-blue-900 hover:bg-blue-300"
+              text="Add Photo"
+              onClick={handleClick}
+            />
             <IconTrash
               className="ml-5 h-5 w-5 cursor-pointer text-gray-400 hover:text-gray-900"
               onClick={handleImageDelete}
