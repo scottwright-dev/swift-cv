@@ -17,7 +17,7 @@ function CVQualification({ formValues }) {
 
   return (
     <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
-      <header className="mb-2 flex items-center text-sm font-normal">
+      <header className="mb-4 flex items-center text-sm font-normal">
         <span className="text-lg">
           <span
             className="inline-block border-b-2 border-slate-200"
@@ -28,16 +28,13 @@ function CVQualification({ formValues }) {
         </span>
       </header>
       {qualificationGroups.map((item) => (
-        <div key={item.id} className="mb-4">
-          <div className="flex items-center">
-            {item.name && <span className="font-semibold">{item.name}</span>}
-            {item.name && item.institute && <span>, </span>}
-            {item.institute && (
-              <span className="font-thin text-gray-500">{item.institute}</span>
-            )}
-          </div>
+        <div key={item.id}>
+          {item.name && <div className="font-light">{item.name}</div>}
+          {item.institute && (
+            <div className="font-thin text-gray-500">{item.institute}</div>
+          )}
           {(item.startdate || item.enddate) && (
-            <div className="flex items-center">
+            <div className="mb-4 flex items-center">
               {item.startdate && <span>{item.startdate}</span>}
               {item.startdate && item.enddate && <span> - </span>}
               {item.enddate && <span>{item.enddate}</span>}
