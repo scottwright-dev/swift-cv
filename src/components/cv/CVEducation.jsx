@@ -16,8 +16,8 @@ function CVEducation({ formValues }) {
   }
 
   return (
-    <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
-      <header className="mb-2 flex items-center text-sm font-normal">
+    <section className="ml-4 space-y-1 text-xs font-thin">
+      <header className="mb-4 flex items-center text-sm font-normal">
         <span className="text-lg">
           <span
             className="inline-block border-b-2 border-slate-200"
@@ -30,14 +30,12 @@ function CVEducation({ formValues }) {
       {educationGroups.map((item) => (
         <div key={item.id} className="mb-4">
           <div className="flex items-center">
-            {item.name && <span className="font-bold">{item.name}</span>}
+            {item.name && <span>{item.name}</span>}
             {item.name && item.school && <span>, </span>}
-            {item.school && (
-              <span className="font-thin text-gray-500">{item.school}</span>
-            )}
+            {item.school && <span className="font-light">{item.school}</span>}
           </div>
           {(item.startdate || item.enddate) && (
-            <div className="flex items-center">
+            <div className="mb-4 flex items-center font-thin text-gray-500">
               {item.startdate && <span>{item.startdate}</span>}
               {item.startdate && item.enddate && <span> - </span>}
               {item.enddate && <span>{item.enddate}</span>}
