@@ -20,8 +20,6 @@ function OutputSection({ formValues, labelsToIds }) {
     [labelsToIds['Summary']]: summary,
   } = formValues;
 
-  console.log('formValues;', formValues);
-
   // Grouped fields
   const CVHeaderFields = { userPhoto, name, surname, jobTitle };
   const CVPersonalInfoFields = { phone, email, linkedIn, website };
@@ -33,8 +31,6 @@ function OutputSection({ formValues, labelsToIds }) {
         key.startsWith(prefix) && formValues[key] && formValues[key].length > 0,
     ),
   );
-
-  console.log('hasLeftColumnContent:', hasLeftColumnContent);
 
   return (
     <section className="print-output-section flex h-screen flex-1 flex-col shadow-2xl">
