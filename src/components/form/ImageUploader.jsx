@@ -57,7 +57,10 @@ function ImageUploader({
 
   return (
     <div className="mb-4 flex flex-col">
-      <label className="mb-2 block leading-6 text-gray-900">
+      <label
+        htmlFor="imageUpload"
+        className="mb-2 block leading-6 text-gray-900"
+      >
         {label}
         {isOptional && <span className="text-gray-400"> (optional)</span>}
       </label>
@@ -81,6 +84,7 @@ function ImageUploader({
         </span>
         <div className="flex-1">
           <input
+            id="imageUpload"
             ref={fileInputRef}
             type="file"
             onChange={handleImageUpload}
