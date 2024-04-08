@@ -13,7 +13,11 @@ function Header({ onPrint, onErase }) {
       </div>
       <div className="mt-4 flex md:ml-4 md:mt-0">
         <div>
-          <ButtonSecondary text="Erase CV" onClick={onErase} />
+          <ButtonSecondary
+            className="hover:bg-red-700"
+            text="Erase CV"
+            onClick={onErase}
+          />
         </div>
         <div className="ml-4">
           <ButtonPrimary text="Save CV" onClick={onPrint} />
