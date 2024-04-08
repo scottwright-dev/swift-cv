@@ -71,7 +71,7 @@ function ImageUploader({
             />
           ) : (
             <svg
-              className="h-full w-full text-indigo-300"
+              className="h-full w-full text-gray-400"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
