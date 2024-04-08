@@ -14,7 +14,7 @@ function Header({ onPrint, onErase }) {
       <div className="mt-4 flex md:ml-4 md:mt-0">
         <div>
           <ButtonSecondary
-            className="hover:bg-red-700 hover:text-white"
+            className="hover:bg-red-800 hover:text-white"
             text="Erase CV"
             onClick={onErase}
           />
