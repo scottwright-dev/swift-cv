@@ -29,7 +29,8 @@ function OutputSection({ formValues, labelsToIds }) {
   // Check if any data is entered in the left column components
   const hasLeftColumnContent = Object.keys(formValues).some((key) =>
     ['personal-', 'skill-', 'qualification', 'education'].some(
-      (prefix) => key.startsWith(prefix) && formValues[key].length > 0,
+      (prefix) =>
+        key.startsWith(prefix) && formValues[key] && formValues[key].length > 0,
     ),
   );
 
