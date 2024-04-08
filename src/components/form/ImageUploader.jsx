@@ -94,7 +94,7 @@ function ImageUploader({
           />
           <div className="flex items-center">
             <ButtonSecondary
-              className="bg-blue-900 text-white outline outline-blue-900 hover:bg-blue-300"
+              className="bg-white text-blue-900 outline-blue-900 hover:bg-blue-900 hover:text-white hover:outline-blue-900"
               text="Add Photo"
               onClick={handleClick}
             />
