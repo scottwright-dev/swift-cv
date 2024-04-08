@@ -18,7 +18,7 @@ function FormSectionDisclosurePanel({
     >
       {({ open }) => (
         <>
-          <Disclosure.Button className="flex w-full justify-between rounded-lg bg-slate-200 px-4 py-2 text-left text-sm font-medium text-slate-900 hover:bg-slate-300 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+          <Disclosure.Button className="flex w-full justify-between rounded-lg bg-slate-200 px-4 py-2 text-left text-sm font-medium text-slate-900 hover:bg-slate-300 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75">
             <span>{section.title}</span>
             <IconChevronRight
               className={`${open ? 'rotate-90 transform' : ''} h-5 w-5 flex-shrink-0 text-slate-500`}
