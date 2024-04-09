@@ -40,18 +40,16 @@ function FormInputSection({ onInputChange, onDelete, formValues }) {
     <div className="flex-1 bg-white pr-4">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-4xl">
-          <form>
-            {sections.map((section) => (
-              <InputSectionDisclosure
-                key={section.title}
-                section={section}
-                formValues={formValues}
-                handleFieldChange={handleFieldChange}
-                onDelete={onDelete}
-                addFieldSet={addFieldSet}
-              />
-            ))}
-          </form>
+          {sections.map((section) => (
+            <InputSectionDisclosure
+              key={section.title}
+              section={section}
+              formValues={formValues}
+              handleFieldChange={handleFieldChange}
+              onDelete={onDelete}
+              addFieldSet={addFieldSet}
+            />
+          ))}
         </div>
       </div>
     </div>
