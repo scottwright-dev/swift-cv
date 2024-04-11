@@ -8,7 +8,9 @@ function Header({ onPrint, onErase }) {
     <header className="hidden rounded-xl bg-blue-900 px-8 py-4 shadow-lg md:flex md:items-center md:justify-between">
       <div className="min-w-0 flex-1">
         <h1>
-          <img src={logo} alt="Swift CV" className="h-auto w-24" />
+          <a href="/">
+            <img src={logo} alt="Swift CV" className="h-auto w-24" />
+          </a>
         </h1>
       </div>
       <div className="mt-4 flex md:ml-4 md:mt-0">
