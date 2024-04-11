@@ -16,7 +16,7 @@ function CVEducation({ formValues }) {
   }
 
   return (
-    <section className="ml-4 space-y-1 text-xs font-thin">
+    <section className="m-6 space-y-1 text-xs font-thin">
       <header className="mb-4 flex items-center text-sm font-normal">
         <span className="text-lg">
           <span
@@ -28,7 +28,7 @@ function CVEducation({ formValues }) {
         </span>
       </header>
       {educationGroups.map((item) => (
-        <div key={item.id} className="mb-4">
+        <div key={item.id}>
           <div className="flex items-center">
             {item.name && <span>{item.name}</span>}
             {item.name && item.school && <span>, </span>}

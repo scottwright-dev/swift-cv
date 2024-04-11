@@ -7,7 +7,7 @@ function CVSkill({ formValues }) {
     .map(([, value]) => value);
 
   return (
-    <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
+    <section className="m-6 space-y-1 text-xs font-thin">
       {skills.length > 0 && (
         <>
           <header className="mb-4 flex items-center text-sm font-normal">
@@ -21,7 +21,7 @@ function CVSkill({ formValues }) {
             </span>
           </header>
           {skills.map((skill, index) => (
-            <div key={index} className="ml-3 flex items-center">
+            <div key={index} className="flex items-center">
               <span className="mr-2.5 text-base leading-none">•</span>
               {skill}
             </div>

@@ -16,7 +16,7 @@ function CVWorkExperience({ formValues }) {
   }
 
   return (
-    <section className="mb-4 ml-4 mr-2 space-y-1 text-xs font-thin">
+    <section className="m-6 space-y-1 text-xs font-thin">
       <header className="relative mb-2 text-sm font-normal">
         <span className="text-lg">
           Work Experience
@@ -30,7 +30,7 @@ function CVWorkExperience({ formValues }) {
         <div key={item.id}>
           <div className="flex items-center space-x-1">
             {item.position && (
-              <span className="font-semibold">{item.position}</span>
+              <span className="font-medium">{item.position}</span>
             )}
             {item.position && item.company && <span> - </span>}
             {item.company && (
@@ -40,12 +40,18 @@ function CVWorkExperience({ formValues }) {
           {(item.startdate || item.enddate) && (
             <div className="mb-2 flex items-center">
               {item.startdate && <span>{item.startdate}</span>}
-              {item.startdate && item.enddate && <span> - </span>}
+              {item.startdate && item.enddate && (
+                <span className="px-1"> - </span>
+              )}
               {item.enddate && <span>{item.enddate}</span>}
             </div>
           )}
           {item.description && (
-            <div className="mb-6 whitespace-pre-line">{item.description}</div>
+            <ul className="mb-6 list-inside list-disc whitespace-pre-line">
+              {item.description.split('\n').map((line, index) => (
+                <li key={index}>{line}</li>
+              ))}
+            </ul>
           )}
         </div>
       ))}

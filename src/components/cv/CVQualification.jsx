@@ -16,7 +16,7 @@ function CVQualification({ formValues }) {
   }
 
   return (
-    <section className="mb-4 ml-4 space-y-1 text-xs font-thin">
+    <section className="m-6 space-y-1 text-xs font-thin">
       <header className="mb-4 flex items-center text-sm font-normal">
         <span className="text-lg">
           <span

@@ -47,7 +47,7 @@ function OutputSection({ formValues, labelsToIds }) {
           <CVEducation formValues={formValues} />
         </aside>
         <section className="w-2/3">
-          {summary && <CVSummary summary={summary} />}
+          {summary && <CVSummary summary={summary} className="px-30" />}
           <CVWorkExperience formValues={formValues} />
         </section>
       </section>
