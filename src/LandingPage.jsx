@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { FadeIn, SlideIn } from './components/Animations';
 import logo from './assets/swiftcv-logo-white.svg';
-import preview from './assets/preview.png';
+import preview from './assets/preview.webp';
 
 export default function LandingPage({ setIsLandingPage }) {
   return (
