@@ -67,7 +67,8 @@ export default function LandingPage({ setIsLandingPage }) {
             <div className="border-t border-white/10 pt-8 md:flex md:items-center md:justify-between">
               <div className="flex w-full justify-between md:order-2">
                 <p className="text-xs leading-5 text-blue-300 md:mt-0">
-                  &copy; 2024 Swift CV. All rights reserved.
+                  &copy; {new Date().getFullYear()} Swift CV. All rights
+                  reserved.
                 </p>
                 <a
                   href="https://github.com/scottwright-dev/swift-cv"
