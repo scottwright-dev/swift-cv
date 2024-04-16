@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { FadeIn, SlideIn } from './components/Animations';
 import logo from './assets/swiftcv-logo-white.svg';
-import preview from './assets/preview.webp';
+import previewImg from './assets/preview.webp';
 
 export default function LandingPage({ setIsLandingPage }) {
   return (
@@ -27,6 +27,8 @@ export default function LandingPage({ setIsLandingPage }) {
                   className="h-16 w-auto lg:h-20 xl:h-24"
                   src={logo}
                   alt="Swift CV logo"
+                  width={100}
+                  height={100}
                 />
                 <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
                   Professional. Fast. Free.
@@ -50,9 +52,11 @@ export default function LandingPage({ setIsLandingPage }) {
               </FadeIn>
               <SlideIn>
                 <img
-                  src={preview}
-                  alt="App screenshot"
-                  className="w-[52rem] rounded-md bg-white/5 object-contain shadow-2xl ring-1 ring-white/10"
+                  src={previewImg}
+                  alt="CV preview"
+                  className="w-[52rem] bg-white/5 object-contain shadow-2xl ring-1 ring-white/10"
+                  width={640}
+                  height={905}
                 />
               </SlideIn>
             </div>
