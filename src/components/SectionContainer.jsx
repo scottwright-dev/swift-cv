@@ -63,8 +63,11 @@ export default function SectionContainer() {
             formValues={formValues}
           />
         </section>
-        <section className="flex h-screen w-full flex-col md:w-3/5">
-          <div ref={componentRef}>
+        <section className="flex h-screen w-full flex-col items-center md:w-3/5">
+          <div
+            ref={componentRef}
+            className="max-w-210mm w-full flex-grow overflow-y-auto"
+          >
             <OutputSection formValues={formValues} labelsToIds={labelsToIds} />
           </div>
         </section>
