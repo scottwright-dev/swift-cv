@@ -3,9 +3,9 @@ import ButtonPrimary from './ButtonPrimary';
 import ButtonSecondary from './ButtonSecondary';
 import logo from '../assets/swiftcv-logo-white.svg';
 
-function Header({ onPrint, onErase }) {
+function AppHeader({ onPrint, onErase, onEdit, onPreview, isMobile }) {
   return (
-    <header className="hidden rounded-xl bg-blue-900 px-8 py-4 shadow-lg md:flex md:items-center md:justify-between">
+    <header className="flex items-center justify-between rounded-xl bg-blue-900 px-8 py-4 shadow-lg md:flex md:items-center md:justify-between">
       <div className="min-w-0 flex-1">
         <h1>
           <a href="/">
@@ -13,25 +13,41 @@ function Header({ onPrint, onErase }) {
           </a>
         </h1>
       </div>
-      <div className="mt-4 flex md:ml-4 md:mt-0">
-        <div>
-          <ButtonSecondary
-            className="text-white hover:bg-red-700 hover:text-white hover:outline-red-700"
-            text="Erase CV"
-            onClick={onErase}
-          />
-        </div>
-        <div className="ml-4">
-          <ButtonPrimary text="Save CV" onClick={onPrint} />
-        </div>
+      <div className="flex items-center">
+        {isMobile ? (
+          <div className="flex space-x-4">
+            <ButtonSecondary
+              className="text-white hover:bg-blue-700 hover:text-white hover:outline-blue-700"
+              text="Edit"
+              onClick={onEdit}
+            />
+            <ButtonPrimary text="Preview" onClick={onPreview} />
+          </div>
+        ) : (
+          <>
+            <div>
+              <ButtonSecondary
+                className="text-white hover:bg-red-700 hover:text-white hover:outline-red-700"
+                text="Erase CV"
+                onClick={onErase}
+              />
+            </div>
+            <div className="ml-4">
+              <ButtonPrimary text="Save CV" onClick={onPrint} />
+            </div>
+          </>
+        )}
       </div>
     </header>
   );
 }
 
-Header.propTypes = {
+AppHeader.propTypes = {
   onPrint: PropTypes.func.isRequired,
   onErase: PropTypes.func.isRequired,
+  onEdit: PropTypes.func,
+  onPreview: PropTypes.func,
+  isMobile: PropTypes.bool,
 };
 
-export default Header;
+export default AppHeader;

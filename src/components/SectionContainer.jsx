@@ -4,6 +4,7 @@ import InputSection from './form/FormInputSection';
 import OutputSection from './cv/CVOutputSection';
 import { formSections } from '../structure/formStructure';
 import AppHeader from './AppHeader';
+import MobileLayout from './MobileLayout';
 
 // Create a mapping from field labels to their corresponding IDs.
 // This allows for quick lookup of a field's ID based on its label.
@@ -17,6 +18,7 @@ formSections.forEach((section) => {
 export default function SectionContainer() {
   const [formValues, setFormValues] = useState({});
   const componentRef = useRef();
+  const [isMobile, setIsMobile] = useState(false);
 
   // Load form values from local storage on initial render, if present
   useEffect(() => {
@@ -53,24 +55,53 @@ export default function SectionContainer() {
     setFormValues({});
   };
 
+  // Check screen size on initial render and window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <>
-      <AppHeader onPrint={handlePrint} onErase={removeAllData} />
+      <AppHeader onErase={removeAllData} />
       <main className="flex min-h-screen flex-col pt-4 md:flex-row">
-        <section className="flex h-screen w-full flex-col overflow-y-auto md:w-2/5">
-          <InputSection
-            onInputChange={handleInputChange}
+        {isMobile ? (
+          <MobileLayout
             formValues={formValues}
+            labelsToIds={labelsToIds}
+            onInputChange={handleInputChange}
+            onDelete={removeAllData}
+            onPrint={handlePrint}
           />
-        </section>
-        <section className="flex h-screen w-full flex-col items-center md:w-3/5">
-          <div
-            ref={componentRef}
-            className="max-w-210mm w-full flex-grow overflow-y-auto"
-          >
-            <OutputSection formValues={formValues} labelsToIds={labelsToIds} />
-          </div>
-        </section>
+        ) : (
+          <>
+            <section className="flex h-screen w-full flex-col overflow-y-auto md:w-2/5">
+              <InputSection
+                onInputChange={handleInputChange}
+                formValues={formValues}
+              />
+            </section>
+            <section className="flex h-screen w-full flex-col items-center md:w-3/5">
+              <div
+                ref={componentRef}
+                className="max-w-210mm w-full flex-grow overflow-y-auto"
+              >
+                <OutputSection
+                  formValues={formValues}
+                  labelsToIds={labelsToIds}
+                />
+              </div>
+            </section>
+          </>
+        )}
       </main>
     </>
   );
