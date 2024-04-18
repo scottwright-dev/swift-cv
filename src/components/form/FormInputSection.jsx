@@ -37,7 +37,7 @@ function FormInputSection({ onInputChange, onDelete, formValues }) {
   };
 
   return (
-    <div className="flex-1 bg-white pr-4">
+    <div className="flex-1 bg-white md:pr-4">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-4xl">
           {sections.map((section) => (
