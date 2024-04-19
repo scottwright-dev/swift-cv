@@ -33,7 +33,7 @@ function OutputSection({ formValues, labelsToIds }) {
   );
 
   return (
-    <section className="print-output-section flex h-screen flex-1 flex-col shadow-2xl">
+    <section className="print-output-section flex h-screen flex-1 flex-col">
       <header>
         <CVHeader {...CVHeaderFields} />
       </header>
