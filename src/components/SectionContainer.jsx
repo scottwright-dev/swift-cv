@@ -60,18 +60,36 @@ export default function SectionContainer() {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
     handleResize();
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
+  const [activeScreen, setActiveScreen] = useState('inputsection');
+  console.log('Initial activeScreen:', activeScreen);
+
+  const handlePreview = () => {
+    setActiveScreen('outputsection');
+    console.log('Updated activeScreen:', 'outputsection');
+  };
+
+  const handleEdit = () => {
+    setActiveScreen('inputsection');
+    console.log('Updated activeScreen:', 'inputsection');
+  };
+
   return (
     <>
-      <AppHeader onErase={removeAllData} />
+      <AppHeader
+        onErase={removeAllData}
+        onPrint={handlePrint}
+        onEdit={handleEdit}
+        onPreview={handlePreview}
+        isMobile={isMobile}
+        activeScreen={activeScreen}
+      />
       <main className="flex min-h-screen flex-col pt-4 md:flex-row">
         {isMobile ? (
           <MobileLayout
@@ -79,7 +97,9 @@ export default function SectionContainer() {
             labelsToIds={labelsToIds}
             onInputChange={handleInputChange}
             onDelete={removeAllData}
-            onPrint={handlePrint}
+            onPreview={handlePreview}
+            onEdit={handleEdit}
+            activeScreen={activeScreen}
           />
         ) : (
           <>
@@ -101,6 +121,16 @@ export default function SectionContainer() {
               </div>
             </section>
           </>
+        )}
+        {isMobile && (
+          <div className="hidden">
+            <div ref={componentRef}>
+              <OutputSection
+                formValues={formValues}
+                labelsToIds={labelsToIds}
+              />
+            </div>
+          </div>
         )}
       </main>
     </>
