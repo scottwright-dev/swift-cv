@@ -68,16 +68,13 @@ export default function SectionContainer() {
   }, []);
 
   const [activeScreen, setActiveScreen] = useState('inputsection');
-  console.log('Initial activeScreen:', activeScreen);
 
   const handlePreview = () => {
     setActiveScreen('outputsection');
-    console.log('Updated activeScreen:', 'outputsection');
   };
 
   const handleEdit = () => {
     setActiveScreen('inputsection');
-    console.log('Updated activeScreen:', 'inputsection');
   };
 
   return (
