@@ -11,12 +11,8 @@ function AppHeader({
   isMobile,
   activeScreen,
 }) {
-  console.log('isMobile:', isMobile);
-  console.log('activeScreen:', activeScreen);
-
   const isInputSection =
     activeScreen === 'inputsection' || activeScreen === undefined;
-  console.log('isInputSection:', isInputSection);
 
   return (
     <header className="flex items-center justify-between rounded-xl bg-blue-900 px-8 py-4 shadow-lg md:flex md:items-center md:justify-between">
