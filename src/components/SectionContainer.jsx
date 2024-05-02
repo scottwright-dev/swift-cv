@@ -18,6 +18,7 @@ formSections.forEach((section) => {
 export default function SectionContainer() {
   const [formValues, setFormValues] = useState({});
   const componentRef = useRef();
+  const mobileComponentRef = useRef();
   const [isMobile, setIsMobile] = useState(false);
 
   // Load form values from local storage on initial render, if present
@@ -46,7 +47,8 @@ export default function SectionContainer() {
 
   // handles creating a pdf / saving a cv
   const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
+    content: () =>
+      isMobile ? mobileComponentRef.current : componentRef.current,
   });
 
   // deletes all user input data in the cv
@@ -90,6 +92,7 @@ export default function SectionContainer() {
       <main className="flex min-h-screen flex-col pt-4 md:flex-row">
         {isMobile ? (
           <MobileLayout
+            ref={mobileComponentRef}
             formValues={formValues}
             labelsToIds={labelsToIds}
             onInputChange={handleInputChange}
